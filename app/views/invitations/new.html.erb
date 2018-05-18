@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <%= javascript_include_tag 'application' %>
+</head>
+<body>
+<div class="materialContainer">
+    <div class="box" style="background-color: #78c2ad">
+<h1>New Invitation</h1>
+
+<%= simple_form_for(@invitation) do |form| %>
+	<%= form.input :recipient_email %>
+	<span class="spin"></span><br>
+	
+	<div class="button">
+         <button><span>Invite!</span></button>
+    </div>
+</div>
+<% end %>
+
+</div>
+</div>
+</body>
+</html>

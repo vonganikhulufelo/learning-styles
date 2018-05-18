@@ -1,0 +1,10 @@
+
+<%= simple_form_for([@organization.user, @organization]) do |form| %>
+			<div class="input1">
+          <%= form.input :org_name, :label => 'organization name'%>
+         <span class="spin"></span><br>
+         </div>
+      <div class="button">
+         <button><span>NEXT</span></button>
+      </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Teams</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Team name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.team_name %></td>
+        <td><%= link_to 'Invite', new_team_teaminvite_path(team),class: "btn-info" %>
+        </td>
+        <td><%= link_to 'Show', organization_team_path(team.organization,team) %></td>
+        <td><%= link_to 'Edit', edit_organization_team_path(team.organization,team) %></td>
+        <td><%= link_to 'Destroy', [team.organization,team], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team', new_organization_team_path %>

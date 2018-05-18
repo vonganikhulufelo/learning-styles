@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+
+<div class="row">
+<div class="col-md-6">
+  <h4 class='text-center'>Learning Styles Questionnaire - Scoring</h4>
+      <p><strong>Activisttotal</strong> <%= @learningstyles.activisttotal %></p>
+       <p><strong>Reflectortotal</strong> <%= @learningstyles.reflectortotal %></p>
+       <p><strong>Theorist</strong> <%= @learningstyles.theoristtotal %></p>
+       <p><strong>Pragmatist</strong> <%= @learningstyles.pragmatisttotal %></p>
+        <p><strong>Activisttotal</strong> <%= @learningstyles.actstatus %></p>
+         <p><strong>Reflectortotal</strong> <%= @learningstyles.refstatus %></p>
+        <p><strong>Theorist</strong> <%= @learningstyles.theostatus %></p>
+        <p><strong>Pragmatist</strong> <%= @learningstyles.pragstatus %></p>  
+
+</div>
+<dov class="col-md-6">
+  <h4 class='text-center'>Learning Styles Questionnaire - Scoring</h4>
+<div id="container" style="height:100%; width:100%; margin: 0;"></div>
+</dov>
+<% if @organizations.to_a.count >= 1%>
+<div class="col-md-6">
+  
+
+<table class="table">
+  <h4 class="text-center"><%= link_to 'Organizations', user_organizations_path(current_user.id)%>(<%= @organizations.count%>)</h4>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.org_name %></td>
+        <td><%= link_to 'Teams', organization_teams_path(organization) %>
+
+        </td>
+        <td><%= link_to 'Edit', edit_user_organization_path(organization.user_id, organization.id) %></td>
+        <td><%= link_to 'Destroy', [organization.user,organization], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<% end %>
+
+<% if @teams.to_a.count >= 1%>
+
+<dov class="col-md-6">
+  <h4 class="text-center">Teams(<%= @teams.to_a.count %>)</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.org_name %>/<%= link_to team.team_name, learningstyles_path %></td>
+        <td><% if team.admin? %> 
+            maintaner
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</dov>
+<% end %>
+
+</div>
+
+<script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = true;
+option = {
+    tooltip: {
+      trigger: 'axis'
+    },
+    xAxis: [{
+      name: 'Reflector',
+      min: -20,
+      splitNumber: 10,
+      max:20
+    },
+    {
+      name: 'Pragmatist',
+      nameLocation: 'start', 
+    }],
+    yAxis: [{
+      name: 'Activist',
+      min: -20,
+      splitNumber: 10,
+      max:20
+    },
+    {
+      name: 'Theorist',
+      nameLocation: 'start',
+    }
+    ],
+    series: [{
+        data: [
+              [0, <%= raw @activist[0].to_i %>],
+              [<%= raw @reflector[0].to_i %>, 0],
+              [0, -<%= raw @theorist[0].to_i %>],
+              [-<%= raw @pragmatist[0].to_i %>, 0],
+              [0, <%= raw @activist[0].to_i %>]
+              ],
+        type: 'line',
+    }]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+</script>
+
+</body>
+</html>
+
+

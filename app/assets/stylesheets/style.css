@@ -1,0 +1,109 @@
+html { width: 100%; min-height:100%; overflow-y:visible; }
+
+body { 
+    width: 100%;
+    font-size: 17px;
+	min-height:100%;
+	font-family: 'Open Sans', sans-serif;
+	 overflow-y:visible;
+	
+	}
+
+
+	
+#home { 
+	position: absolute;
+	left: 0;
+	right: 0;
+	width:100%;
+	height:auto;
+}
+
+.formposition { 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+}
+
+.formpos { 
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+}
+
+.formposition h1, .reset h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+.formposition input, .reset input{ 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+.form-group{position:relative;}
+.form-group .myInput{width:100%;border:0;border-radius:0;background:#25262B;height:70px;font-size:20px;padding-left:50px;}
+.myInput::placeholder{color:#777777;opacity:.9;}
+.form-group .myInput:focus{background:#28272b;color:#F86A3A;}
+.form-group .input-icon{color:#777;font-size:20px;position:absolute;z-index:1;top:21px;left:15px;}
+.form-group .myInput:focus + .input-icon{color:#F86A3A;}
+.main-banner{background:url('assets/main_bg.jpg')center fixed;background-size:100% 100%;}
+.main-banner .bg-gradient{background:rgba(32,34,38,0.7);background:-moz-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:-webkit-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:-o-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:-ms-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:linear-gradient(to bottom, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);padding:200px 0 100px;min-height:100vh;}
+.banner-text{margin-top:20px;}
+.banner-text .big-text{color:#fff;font-size:37px;font-family:robo-medium;text-transform:uppercase;margin:0;}
+.banner-text .content{color:#bebebe;font-size:19px;font-family:robo-light;margin-top:25px;}
+.banner-text .btn{margin-top:30px;}
+.loginDiv, .new_company, .edit_comapny, .new_team, .edit_team{background:rgba(22,24,27,.35);max-width:390px;margin:30px auto;}
+.ediiting {background:rgba(22,24,27,.35);max-width:390px;margin:-130px auto;}
+.loginDiv .login-title{color:#fff;font-size:22px;font-family:robo-medium;border-left:3px solid #F86A3A;padding-left:10px;margin:15px 0 !important;}
+.loginDiv .form-group{margin-bottom:0;}
+.loginDiv .form-group:first-child .myInput{border-bottom:1px solid rgba(255,255,255,0.02);}
+.loginDiv button{color:#fff;font-size:18px;font-family:robo-medium;background:transparent;border:0;border-radius:0;text-align:center;padding:25px;width:100%;transition:all 0.25s;}
+.loginDiv button:hover{color:#f86a3a;transition:all 0.3s;}
+
+.new_company button, .edit_comapny button, .new_team button, .edit_team button, .editting button{color:#fff;font-size:18px;font-family:robo-medium;background:transparent;border:0;border-radius:0;text-align:center;padding:25px;width:100%;transition:all 0.25s;}
+.new_company button:hover, .edit_comapny button:hover, .new_team button:hover, .edit_team button:hover, .editting button:hover{color:#f86a3a;transition:all 0.3s;}
+.bg-color{background:#202226;}
+
+.form-control:focus{background:#28272b;color:#F86A3A;}
+#company_company_address:focus{background:#28272b;color:#F86A3A;}
+
+.edit_user input, .new_company input, .edit_company input, #company_company_address, .new_team input, .edit_team input{ 
+		width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+
+ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+

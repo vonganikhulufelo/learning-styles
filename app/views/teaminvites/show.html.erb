@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @teaminvite.organization_id %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @teaminvite.team_id %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @teaminvite.email %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @teaminvite.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @teaminvite.user %>
+</p>
+
+<%= link_to 'Edit', edit_teaminvite_path(@teaminvite) %> |
+<%= link_to 'Back', teaminvites_path %>

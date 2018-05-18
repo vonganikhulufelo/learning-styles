@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <%= javascript_include_tag 'application' %>
+</head>
+<body>
+
+<div class="materialContainer">
+    <div class="box" style="background-color: #78c2ad;">
+
+      <div class="title" style="background-color: #1111">UPDATE PROFILE</div>
+      <%= simple_form_for(@user) do |form| %>
+
+          <div class="input1">
+          <%= form.input :name, :label => 'Name'%>
+         <span class="spin"></span><br>
+         </div>
+
+         <div class="input1">
+          <%= form.input :email, :label => 'Email' %>
+          <span class="spin"></span>
+          </div>
+          <div class="input1">
+         <%= form.input :password, :label => 'Password' %>
+         <span class="spin"></span>
+       </div>
+
+       <div class="input1">
+         <%= form.input :password_confirmation, :label => 'Retype password' %>
+         <span class="spin"></span>
+       </div>
+
+
+      <div class="button">
+         <button><span>NEXT</span></button>
+      </div>
+      <% end %>
+      </div>
+
+</div>
+
+</body>
+</html>

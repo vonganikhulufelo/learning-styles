@@ -1,0 +1,54 @@
+    <div class="bs-example">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <%= link_to "Learning Style",root_path ,class: "navbar-brand" %>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <%= form_tag users_path, method: 'get',class: "form-inline my-2 my-lg-0" do %>
+          <%= text_field_tag :search, params[:search], class: "form-control" %>
+          <%= submit_tag "Search" ,class: "btn btn-default"%>
+          <% end %>
+
+
+          
+            <ul class="navbar-nav ml-auto">
+              
+                   
+                   <li class="nav-item"><%= link_to "Home", root_path,class: "nav-link" %></li>
+               <li class="nav-item"><%= link_to "New organization", new_user_organization_path(current_user.id),class: "nav-link" %></li>
+
+               <li class="nav-item">
+                <li class="nav-item">
+
+<div class="dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+              <span class="user-name">Logged as <%= current_user.name %></span>
+              <b class="caret"></b>
+            </a><ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+              <li class="nav-item">
+                <%= link_to '<i class="fa fa-user"></i> Profile'.html_safe %>
+              </li>
+              <li>
+                <%= link_to '<i class="fa fa-cog"></i> Settings'.html_safe, edit_user_path(current_user.id)%>
+              </li>
+              <li class="nav-item">
+                <%= link_to  '<i class="fa fa-sign-out"></i> Sign out'.html_safe, logout_path %>
+              </li>
+            </ul>
+            </ul>
+          </div>
+        </div>
+    </nav>
+  </div>
+
+   
+     <%# if (controller.controller_name == "users" && controller.action_name == "new") || (controller.controller_name == "users" && controller.action_name == "index") %>
+ 
+   <%# else %> 
+
+  <div class="container"> 
+      <%# end %>

@@ -1,0 +1,23 @@
+<%= simple_form_for(@user) do |form| %>
+
+
+          <%= form.input :name%>
+         <span class="spin"></span><br>
+
+          <%= form.input :email %>
+          <span class="spin"></span>
+   
+
+         <%= form.input :password %>
+         <span class="spin"></span>
+
+
+         <%= form.input :password_confirmation %>
+         <span class="spin"></span>
+
+
+      <div class="button">
+         <button><span>NEXT</span></button>
+      </div>
+      </div>
+<% end %>

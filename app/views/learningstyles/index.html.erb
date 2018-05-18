@@ -1,0 +1,34 @@
+<h1>Learningstyles</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Activisttotal</th>
+      <th>Reflectortotal</th>
+      <th>Theorist</th>
+      <th>Pragmatist</th>
+      <th>Activisttotal</th>
+      <th>Reflectortotal</th>
+      <th>Theorist</th>
+      <th>Pragmatist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teamsmembers.each do |learningstyle| %>
+      <tr>
+        <td><%= learningstyle.name %></td>
+        <td><%= learningstyle.activisttotal %></td>
+        <td><%= learningstyle.reflectortotal %></td>
+        <td><%= learningstyle.theoristtotal %></td>
+        <td><%= learningstyle.pragmatisttotal %></td>
+        <td><%= learningstyle.actstatus %></td>
+        <td><%= learningstyle.refstatus %></td>
+        <td><%= learningstyle.theostatus %></td>
+        <td><%= learningstyle.pragstatus %></td>
+        <td><%#= link_to 'Edit', edit_user_learningstyle_path(current_user.id, learningstyle.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

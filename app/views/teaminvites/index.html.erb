@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Teaminvites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Organization</th>
+      <th>Team</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teaminvites.each do |teaminvite| %>
+      <tr>
+        <td><%= teaminvite.organization_id %></td>
+        <td><%= teaminvite.team_id %></td>
+        <td><%= teaminvite.email %></td>
+        <td><%= teaminvite.status %></td>
+        <td><%= teaminvite.user %></td>
+        <td><%= link_to 'Show', teaminvite %></td>
+        <td><%= link_to 'Edit', edit_teaminvite_path(teaminvite) %></td>
+        <td><%= link_to 'Destroy', teaminvite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teaminvite', new_teaminvite_path %>

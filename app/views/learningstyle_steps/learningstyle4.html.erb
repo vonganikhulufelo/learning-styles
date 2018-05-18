@@ -1,0 +1,118 @@
+<div class="container">
+<div class="progress">
+  <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+</div>
+
+</div>
+
+<%= simple_form_for(@learningstyle, url: wizard_path) do |form| %>
+<div class="row">
+<div class="col-md-6">
+
+  <div class="form-group">
+  61. I like to ponder many alternatives before making up my mind.
+    <%= form.input :question61, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    62. In discussions with people I often find i am the most dispassionate and objective.
+    <%= form.input :question62, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons%>
+  </div>
+
+  <div class="form-group">
+    63. in discussion I'm more likely to adopt a 'low profile' than take the lead and do most of the talking.
+    <%= form.input :question63, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    64. I like to be able to relate current actions to a long-term bigger picture.
+    <%= form.input :question64, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+   <div class="form-group">
+    65. when things go wrong I am happy to shrug it off and 'put it down to experience'.
+    <%= form.input :question65, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    66. I tend to reject wild, spontaneous ideas as being impractical.
+    <%= form.input :question66, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    67. it's best to think carefully before taking action.
+    <%= form.input :question67, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    68. On Balance I do the listening rather than the talking.
+    <%= form.input :question68, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    69. I tend to be tough on people who find it difficult to adopt a logical approach.
+    <%= form.input :question69, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    70. most times I believe the end justifies the means.
+    <%= form.input :question70, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+</div> 
+<div class="col-md-6">
+  <div class="form-group">
+    71. I don't mind hurting people's feelings so long as the job get's done.
+    <%= form.input :question71, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    72. I find the formally of having specific objectives and plans stifling.
+    <%= form.input :question72, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    73. I'm usually one of the people who puts life into the party.
+    <%= form.input :question73, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    74.I do whatever is expected to get the job done.
+    <%= form.input :question74, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    75. I quickly get bored with methodical, detailed work.
+    <%= form.input :question75, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    76. I am keen on exploring the basic assumptions, principles and theories underpinning things and events.
+    <%= form.input :question76, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    77. I'm always interested to find out what people think.
+    <%= form.input :question77, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    78. I like meetings to be run on methodical lines, sticking to a laid down agenda,ect.
+    <%= form.input :question78, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    79. I steer clear of subjective or ambiguous topics.
+    <%= form.input :question79, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+
+  <div class="form-group">
+    80. I enjoy the drama and excitement of a crisis situations.
+    <%= form.input :question80, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
+  </div>
+</div>
+
+<div class="actions">
+    <%= form.submit 'Continue' %>
+</div>
+
+<% end %>

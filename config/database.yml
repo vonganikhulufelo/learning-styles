@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: QuestApp_development
+  username: postgres
+  password: ABC123@z
+
+
+production:
+  <<: *default
+  database: QuestApp_production
+  username: postgres
+  password: <%= ENV['QUESTAPP_DATABASE_PASSWORD'] %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization_id: 
+  email: MyString
+  accepted: false
+  admin: false
+  user: one
+  team: one
+
+two:
+  organization_id: 
+  email: MyString
+  accepted: false
+  admin: false
+  user: two
+  team: two
