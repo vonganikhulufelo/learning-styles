@@ -58,7 +58,7 @@ Rails.application.configure do
     :user_name      => 'nname4440@gmail.com',
     :password       => '17932468',
     :enable_starttls_auto => true,
-    :domain         => 'gmail.com',
+    :domain         => 'heroku.com',
   }
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
