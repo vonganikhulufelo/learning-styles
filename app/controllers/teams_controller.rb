@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:edit, :update, :destroy]
 
   # GET /teams
   # GET /teams.json
@@ -11,11 +11,20 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @org = Organization.find_by(org_name: params[:organization_id])
+    @team = Team.find_by(id: params[:id])
+
+    @teams = User.joins(organizations: [teams: :teaminvites]).select('teaminvites.name as name, teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, teaminvites.admin, teaminvites.id as teaminvite_id').where("teaminvites.team_id = ? AND teaminvites.accepted = ?", @team.id, 'true').group('teaminvites.id, teams.id, organizations.id')
+ 
+    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('users.name,
+     learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,
+      learningstyles.actstatus, learningstyles.refstatus, learningstyles.theostatus,
+       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teams.id = ?", 'true', @team.id).group('users.id,teams.id,organizations.id, learningstyles.id')
   end
 
   # GET /teams/new
   def new
-     @organization = Organization.find(params[:organization_id])
+    @organization = Organization.find(params[:organization_id])
     @team = @organization.teams.build
   end
 
@@ -32,7 +41,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       if @team.save
 
-        Teaminvite.create!(user_id: current_user.id, accepted: 'true', team_id: @team.id, email: current_user.email, admin: 'true')
+        Teaminvite.create!(admin_id: current_user.id,name: current_user.name,user_id: current_user.id, accepted: 'true', team_id: @team.id, email: current_user.email, admin: 'true',organization_id: @team.organization_id)
         format.html { redirect_to organization_teams_path(@team.organization_id), notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else

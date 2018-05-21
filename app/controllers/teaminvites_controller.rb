@@ -33,6 +33,9 @@ class TeaminvitesController < ApplicationController
         @user = User.find_by_email(email)
         if @user
         @teaminvite.update_attribute(:user_id, @user.id)
+        @teaminvite.update_attribute(:name, @user.name)
+         @teaminvite.update_attribute(:admin_id, @user.id)
+        @teaminvite.update_attribute(:organization_id, @team.organization_id)
         @teaminvite.update_attribute(:email, email)
         @teaminvite.save
         InviteMailer.send_invite_team(@teaminvite).deliver_now

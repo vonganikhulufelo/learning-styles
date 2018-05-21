@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h4 class="text-center">(<%= @teams.to_a.count %>) Members in <%= @teams[0].team_name %></h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Team name:</strong>
-  <%= @team.team_name %>
-</p>
-
-<p>
-  <strong>Organization:</strong>
-  <%= @team.organization %>
-</p>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name%></td>
+        <td><%= team.org_name %>/<%= link_to team.team_name, organization_team_path(team.org_name, team.team_id) %></td>
+        <td><% if team.admin? %> 
+            maintaner
+          <% end %>
+        </td>
+        <td><% if team.admin? %> 
+            <%#= link_to 'Remove', team_teaminvite_path(team.team_id, team.teaminvite_id),class: 'btn-danger'%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

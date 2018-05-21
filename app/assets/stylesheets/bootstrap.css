@@ -1919,6 +1919,15 @@ pre code {
   .table-responsive-sm > .table-bordered {
     border: 0;
   }
+  .materialContainer1 {
+   width: 100%;
+   max-width: 460px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+}
 }
 
 @media (max-width: 767.98px) {

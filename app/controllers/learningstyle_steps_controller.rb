@@ -40,6 +40,7 @@ include Wicked::Wizard
   	@user = current_user
   	@learningstyle = @user.learningstyles.order(:id).first
   	@learningstyle.update(learningstyle_params)
+    
     @u = @user.step_no + 1
     @user.update_attribute(:step_no, @u)
   	render_wizard @learningstyle

@@ -25,17 +25,19 @@
                     </div>
                     <div class="col-md-5 col-sm-6 col-xs-12 pull-right">
                       <!--Login Div-->
-                       <div class="materialContainer">
+                      <div class="row">
+                       <div class="materialContainer1">
 
-   <div class="box">
+   <div class="box" style="background-color: #78c2ad">
     <div class="container">
     <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> text-center"><%= value %>
         </div>
       <% end %>
     </div>
-<div class="material-button alt-2">Add<%= link_to '',new_user_path, class: "shape" %></div>
-      <div class="title">LOGIN</div>
+    <h4 class="row" style="background-color: #1111">
+      <%= link_to 'LOGIN',root_path, class: "col-md-6 col-xs-6 col-sm-6 btn-primary" %><%= link_to 'REGISTER',new_user_path, class: "col-md-6 col-xs-6 col-sm-6 btn-primary" %>
+      </h4>
       <%= form_tag login_path do %>
       <div class="input1">
          <label for="name">Username</label>
@@ -54,7 +56,7 @@
       </div>
       <% end %>
 
-      <a href="" class="pass-forgot">Forgot your password?</a>
+      <%= link_to 'Forgot your password?', new_password_reset_path, class: "pass-forgot"%>
 
    </div>
 
@@ -96,6 +98,7 @@
 
    </div>
 
+</div>
 </div>
 </div>
 </div>

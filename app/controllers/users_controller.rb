@@ -17,15 +17,13 @@ class UsersController < ApplicationController
   def show
 
     @user = current_user
-     @learningstyles = @user.learningstyles.order(:id).first
+    @learningstyles = @user.learningstyles.find_by(user_id: @user.id)
     @name = Daru::Vector.new [@user.name]
     @activist = Daru::Vector.new [@learningstyles.activisttotal]
     @reflector = Daru::Vector.new [@learningstyles.reflectortotal]
     @theorist = Daru::Vector.new [@learningstyles.theoristtotal]
     @pragmatist = Daru::Vector.new [@learningstyles.pragmatisttotal]
-   
      @organizations = @user.organizations
-     @users = User.find_by_sql("select * from users")
       @teams = User.joins(organizations: [teams: :teaminvites]).select('teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, teaminvites.admin').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('teaminvites.id, teams.id, organizations.id')
   end
 
@@ -47,7 +45,7 @@ class UsersController < ApplicationController
     if @user.save
        @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to root_url, notice: 'User was successfully created.' 
     else
       render :action => 'new.html.erb'
     end

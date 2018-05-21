@@ -3,8 +3,8 @@
 <head>
   <title></title>
  <%= javascript_include_tag 'application' %>
-  <link rel="stylesheet" href="http://tnetwork.designgurus.in/assets/css/custom.min.css">
 </head>
+<body>
   <div id="home">
  <section id="home-section" class="main-banner">
         <div class="bg-gradient">
@@ -19,12 +19,12 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-6 col-xs-12 pull-right">
-                      <div class="material-button alt-2">Home<%= link_to '',root_path, class: "shape" %></div>
                       <!--Login Div-->
-                       <div class="materialContainer">
+                       <div class="materialContainer1">
                         <div class="box" style="background-color: #78c2ad">
-
-      <h1>REGISTER</h1>
+      <h4 class="row" style="background-color: #1111">
+      <%= link_to 'REGISTER',new_user_path, class: "col-md-6 col-xs-6 col-sm-6 btn-primary active" %> <%= link_to 'LOGIN',root_path, class: "col-md-6 col-xs-6 col-sm-6 btn-primary" %>
+      </h4>
        <%= simple_form_for(@user) do |form| %>
 
         <div class="input1">

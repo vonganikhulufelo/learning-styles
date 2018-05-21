@@ -134,13 +134,26 @@
    background: transparent;
 }
 
-.input input,
-.input label,
+.input1 input,
+.input1 label,
 .button button {
    font-family: 'Roboto', sans-serif;
    font-size: 24px;
    color: rgba(0, 0, 0, 0.8);
    font-weight: 300;
+}
+
+.input input,
+.input label,
+.button button {
+   font-family: 'Roboto', sans-serif;
+   font-size: 15px;
+   color: rgba(0, 0, 0, 0.8);
+   font-weight: 0;
+}
+
+.simple_form .edit_learningstyle{
+ font-size: 24px;
 }
 
 .input1:before,
