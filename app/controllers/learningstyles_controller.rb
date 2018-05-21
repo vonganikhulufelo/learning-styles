@@ -6,7 +6,7 @@ class LearningstylesController < ApplicationController
   def index
      @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('users.name, learningstyles.activisttotal, learningstyles.reflectortotal, 
       learningstyles.theoristtotal, learningstyles.pragmatisttotal, learningstyles.actstatus, learningstyles.refstatus,
-      learningstyles.theostatus, learningstyles.pragstatus').where("teaminvites.user_id = ? AND teams.team_name != ?", current_user.id, ' ').group('users.id, learningstyles.id')
+      learningstyles.theostatus, learningstyles.pragstatus').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('users.id, learningstyles.id')
     @learningstyles = Learningstyle.all
   end
 
@@ -24,7 +24,8 @@ class LearningstylesController < ApplicationController
 
   # GET /learningstyles/new
   def new
-    @learningstyle = Learningstyle.new
+    @user = User.find(params[:user_id])
+    @learningstyle = @user.learningstyles.build
   end
 
   # GET /learningstyles/1/edit
@@ -34,7 +35,8 @@ class LearningstylesController < ApplicationController
   # POST /learningstyles
   # POST /learningstyles.json
   def create
-    @learningstyle = Learningstyle.new(learningstyle_params)
+    @user = User.find(params[:user_id])
+    @learningstyle = @user.learningstyles.create(learningstyle_params)
     if current_user.step_no.to_i >= 1
       redirect_to learningstyle_steps_path
     else

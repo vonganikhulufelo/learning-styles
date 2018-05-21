@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         if user.step_no.to_i < 0 || user.step_no == nil
-          redirect_to new_learningstyle_path
+          redirect_to new_user_learningstyle_path(user.id)
         elsif user.step_no.to_i != 4
           redirect_to learningstyle_steps_path
         else
