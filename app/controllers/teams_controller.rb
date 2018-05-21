@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
     @org = Organization.find_by(org_name: params[:organization_id])
     @team = Team.find_by(id: params[:id])
 
-    @teams = User.joins(organizations: [teams: :teaminvites]).select('teaminvites.name as name, teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, teaminvites.admin, teaminvites.id as teaminvite_id').where("teaminvites.team_id = ? AND teaminvites.accepted = ?", @team.id, 'true').group('teaminvites.id, teams.id, organizations.id')
+    @teams = User.joins(organizations: [teams: :teaminvites]).select('teaminvites.name as name, teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name,teaminvites.user_id as user_id, teaminvites.admin, teaminvites.id as teaminvite_id').where("teaminvites.team_id = ? AND teaminvites.accepted = ?", @team.id, 'true').group('teaminvites.id, teams.id, organizations.id')
  
     @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('users.name,
      learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,

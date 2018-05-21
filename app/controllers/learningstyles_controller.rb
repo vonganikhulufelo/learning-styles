@@ -13,6 +13,13 @@ class LearningstylesController < ApplicationController
   # GET /learningstyles/1
   # GET /learningstyles/1.json
   def show
+    @user = User.find(params[:user_id])
+    @learningstyles = @user.learningstyles.find(@user.id)
+    @name = Daru::Vector.new [@user.name]
+    @activist = Daru::Vector.new [@learningstyles.activisttotal]
+    @reflector = Daru::Vector.new [@learningstyles.reflectortotal]
+    @theorist = Daru::Vector.new [@learningstyles.theoristtotal]
+    @pragmatist = Daru::Vector.new [@learningstyles.pragmatisttotal]
   end
 
   # GET /learningstyles/new

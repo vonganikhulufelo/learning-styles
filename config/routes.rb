@@ -27,12 +27,12 @@ get '/accept_invitations/:id', to: 'accept_invitations#accepted'
      resources :teaminvites
    end
   #get '/accept_invitations/:id', to: 'accept_invitations#accepted', as: 'accepted'
-  resources :learningstyles
    resources :learningstyle_steps
      delete '/logout',  to: 'sessions#destroy'
   get '/logout',  to: 'sessions#destroy'
   resources :users, only: [:edit, :update, :index] do
    resources :organizations
+   resources :learningstyles
  end
 
   end

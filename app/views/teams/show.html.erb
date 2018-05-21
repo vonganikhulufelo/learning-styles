@@ -12,7 +12,7 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name%></td>
-        <td><%= team.org_name %>/<%= link_to team.team_name, organization_team_path(team.org_name, team.team_id) %></td>
+        <td><%= link_to 'learningstyle', user_learningstyle_path(team.user_id) %></td>
         <td><% if team.admin? %> 
             maintaner
           <% end %>
