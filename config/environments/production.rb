@@ -47,18 +47,18 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
-  config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'learningstyles.herokuapp.com'
+  host = 'https://learningstyles.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
-  config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
     :port           => 587,
     :authentication => 'plain',
-    :user_name      => ENV['Devindra92'],
-    :password       => ENV['Desh15111'],
+    :user_name      => 'nname4440@gmail.com',
+    :password       => '17932468',
     :enable_starttls_auto => true,
-    :domain         => 'heroku.com',
+    :domain         => 'gmail.com',
   }
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
