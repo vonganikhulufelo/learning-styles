@@ -49,14 +49,14 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://learningstyles.herokuapp.com'
+  host = 'learningstyles.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.gmail.com',
+    :address        => 'smtp.sendgrid.net',
     :port           => 587,
     :authentication => 'plain',
-    :user_name      => 'nname4440@gmail.com',
-    :password       => '17932468',
+    :user_name      => ENV['Devindra92'],
+    :password       => ENV['Desh15111'],
     :enable_starttls_auto => true,
     :domain         => 'heroku.com',
   }
