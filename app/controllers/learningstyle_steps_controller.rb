@@ -8,7 +8,7 @@ include Wicked::Wizard
       
         when :learningstyle2
           if @user.step_no == 1
-            @learningstyle = Learningstyle.find(@user.id)
+            @learningstyle = @user.learningstyles.find(@user.id)
           else
             skip_step
           end
@@ -18,7 +18,7 @@ include Wicked::Wizard
       
         when :learningstyle3
           if @user.step_no == 2
-            @learningstyle = Learningstyle.find(@user.id)
+            @learningstyle = @user.learningstyles.find(@user.id)
           else
             skip_step
           end
@@ -27,7 +27,7 @@ include Wicked::Wizard
       
         when :learningstyle4
           if @user.step_no == 3
-            @learningstyle = Learningstyle.find(@user.id)
+            @learningstyle = @user.learningstyles.find(@user.id)
           else
             skip_step
           end
@@ -38,7 +38,7 @@ include Wicked::Wizard
 
   def update
   	@user = current_user
-  	@learningstyle = Learningstyle.find(@user.id)
+  	@learningstyle = @user.learningstyles.order(:id).first
   	@learningstyle.update(learningstyle_params)
     
     @u = @user.step_no + 1
