@@ -13,10 +13,10 @@ class TeamsController < ApplicationController
   def show
     @org = Organization.find(params[:organization_id])
     @team = @org.teams.find_by(id: params[:id])
-    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('teaminvites.name,teaminvites.user_id,
+    @teamsmembers = User.joins([organizations: {teams: :teaminvites}], :learningstyles).select('teaminvites.name,teaminvites.user_id,
      learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,
       learningstyles.id as learningstyle_id, learningstyles.actstatus, learningstyles.refstatus, learningstyles.theostatus,
-       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id,users.id, learningstyles.id')
+       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id, learningstyles.id')
   end
 
   # GET /teams/new
