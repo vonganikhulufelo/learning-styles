@@ -38,7 +38,7 @@ include Wicked::Wizard
 
   def update
   	@user = current_user
-  	@learningstyle = @user.learningstyles.order(:id).first
+  	@learningstyle = @user.learningstyles.find(@user.id)
   	@learningstyle.update(learningstyle_params)
     
     @u = @user.step_no + 1
