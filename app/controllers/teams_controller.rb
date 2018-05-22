@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @org = Organization.find_by(org_name: params[:organization_id])
+    @org = Organization.find(params[:organization_id])
     @team = @org.teams.find_by(id: params[:id])
     @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('teaminvites.name,teaminvites.user_id,
      learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,

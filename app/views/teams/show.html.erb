@@ -17,7 +17,7 @@
   <tbody>
     <% @teamsmembers.each do |learningstyle| %>
       <tr>
-        <td><%= link_to learningstyle.name, user_learningstyle_path(learningstyle.name, learningstyle.learningstyle_id) %></td>
+        <td><%= link_to learningstyle.name, user_learningstyle_path(learningstyle.user_id, learningstyle.learningstyle_id) %></td>
         <td><%= learningstyle.activisttotal %></td>
         <td><%= learningstyle.reflectortotal %></td>
         <td><%= learningstyle.theoristtotal %></td>

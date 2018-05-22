@@ -17,14 +17,14 @@ class UsersController < ApplicationController
   def show
 
     @user = current_user
-    @learningstyles = @user.learningstyles.find_by(user_id: @user.id)
+    @learningstyles = Learningstyle.find(@user.id)
     @name = Daru::Vector.new [@user.name]
     @activist = Daru::Vector.new [@learningstyles.activisttotal]
     @reflector = Daru::Vector.new [@learningstyles.reflectortotal]
     @theorist = Daru::Vector.new [@learningstyles.theoristtotal]
     @pragmatist = Daru::Vector.new [@learningstyles.pragmatisttotal]
      @organizations = @user.organizations
-      @teams = User.joins(organizations: [teams: :teaminvites]).select('teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, teaminvites.admin').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('teaminvites.id, teams.id, organizations.id')
+      @teams = User.joins(organizations: [teams: :teaminvites]).select('teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, organizations.id as organization_id, teaminvites.admin').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('teaminvites.id, teams.id, organizations.id')
   end
 
   # GET /users/new
