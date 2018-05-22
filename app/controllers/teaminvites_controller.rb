@@ -4,7 +4,8 @@ class TeaminvitesController < ApplicationController
   # GET /teaminvites
   # GET /teaminvites.json
   def index
-    @teaminvites = Teaminvite.all
+    @team = Team.find(params[:team_id])
+    @teaminvites = @team.teaminvites
   end
 
   # GET /teaminvites/1
@@ -34,7 +35,6 @@ class TeaminvitesController < ApplicationController
         if @user
         @teaminvite.update_attribute(:user_id, @user.id)
         @teaminvite.update_attribute(:name, @user.name)
-         @teaminvite.update_attribute(:admin_id, @user.id)
         @teaminvite.update_attribute(:organization_id, @team.organization_id)
         @teaminvite.update_attribute(:email, email)
         @teaminvite.save

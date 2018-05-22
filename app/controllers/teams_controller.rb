@@ -12,14 +12,11 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @org = Organization.find_by(org_name: params[:organization_id])
-    @team = Team.find_by(id: params[:id])
-
-    @teams = User.joins(organizations: [teams: :teaminvites]).select('teaminvites.name as name, teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name,teaminvites.user_id as user_id, teaminvites.admin, teaminvites.id as teaminvite_id').where("teaminvites.team_id = ? AND teaminvites.accepted = ?", @team.id, 'true').group('teaminvites.id, teams.id, organizations.id')
- 
-    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('users.name,
+    @team = @org.teams.find_by(id: params[:id])
+    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('teaminvites.name,teaminvites.user_id,
      learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,
-      learningstyles.actstatus, learningstyles.refstatus, learningstyles.theostatus,
-       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teams.id = ?", 'true', @team.id).group('users.id,teams.id,organizations.id, learningstyles.id')
+      learningstyles.id as learningstyle_id, learningstyles.actstatus, learningstyles.refstatus, learningstyles.theostatus,
+       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id,users.id, learningstyles.id')
   end
 
   # GET /teams/new

@@ -1,27 +1,34 @@
-<h4 class="text-center">(<%= @teams.to_a.count %>) Members in <%= @teams[0].team_name %></h4>
+<h4 class="text-center">(<%= @teamsmembers.to_a.count %>) Members</h4>
 <table class="table">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Name</th>
+      <th>Activisttotal</th>
+      <th>Reflectortotal</th>
+      <th>Theorist</th>
+      <th>Pragmatist</th>
+      <th>Activisttotal</th>
+      <th>Reflectortotal</th>
+      <th>Theorist</th>
+      <th>Pragmatist</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @teams.each do |team| %>
+    <% @teamsmembers.each do |learningstyle| %>
       <tr>
-        <td><%= team.name%></td>
-        <td><%= link_to 'learningstyle', user_learningstyle_path(team.user_id) %></td>
-        <td><% if team.admin? %> 
-            maintaner
-          <% end %>
-        </td>
-        <td><% if team.admin? %> 
-            <%#= link_to 'Remove', team_teaminvite_path(team.team_id, team.teaminvite_id),class: 'btn-danger'%>
-          <% end %>
-        </td>
+        <td><%= link_to learningstyle.name, user_learningstyle_path(learningstyle.name, learningstyle.learningstyle_id) %></td>
+        <td><%= learningstyle.activisttotal %></td>
+        <td><%= learningstyle.reflectortotal %></td>
+        <td><%= learningstyle.theoristtotal %></td>
+        <td><%= learningstyle.pragmatisttotal %></td>
+        <td><%= learningstyle.actstatus %></td>
+        <td><%= learningstyle.refstatus %></td>
+        <td><%= learningstyle.theostatus %></td>
+        <td><%= learningstyle.pragstatus %></td>
+        <td><%#= link_to 'Edit', edit_user_learningstyle_path(current_user.id, learningstyle.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+

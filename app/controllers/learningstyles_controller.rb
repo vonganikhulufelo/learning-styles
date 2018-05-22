@@ -4,16 +4,16 @@ class LearningstylesController < ApplicationController
   # GET /learningstyles
   # GET /learningstyles.json
   def index
-     @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('users.name, learningstyles.activisttotal, learningstyles.reflectortotal, 
+     @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('learningstyles.activisttotal, learningstyles.reflectortotal, 
       learningstyles.theoristtotal, learningstyles.pragmatisttotal, learningstyles.actstatus, learningstyles.refstatus,
-      learningstyles.theostatus, learningstyles.pragstatus').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('users.id, learningstyles.id')
+      learningstyles.theostatus, learningstyles.pragstatus').where("teaminvites.user_id = ? AND teaminvites.accepted = ? AND teaminvites.team_id = ?", current_user.id, 'true', 1).group('learningstyles.id')
     @learningstyles = Learningstyle.all
   end
 
   # GET /learningstyles/1
   # GET /learningstyles/1.json
   def show
-    @user = User.find(params[:user_id])
+    @user = User.find_by(name: params[:user_id])
     @learningstyles = @user.learningstyles.find(@user.id)
     @name = Daru::Vector.new [@user.name]
     @activist = Daru::Vector.new [@learningstyles.activisttotal]

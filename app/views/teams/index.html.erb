@@ -14,7 +14,7 @@
         <td><%= team.team_name %></td>
         <td><%= link_to 'Invite', new_team_teaminvite_path(team),class: "btn-info" %>
         </td>
-        <td><%= link_to 'Show', organization_team_path(team.organization,team) %></td>
+        <td><%= link_to 'Members', team_teaminvites_path(team.id) %></td>
         <td><%= link_to 'Edit', edit_organization_team_path(team.organization,team) %></td>
         <td><%= link_to 'Destroy', [team.organization,team], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
