@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def show
 
     @user = current_user
-    @learningstyles = Learningstyle.find(@user.id)
+    @learningstyles = Learningstyle.find_by_user_id(@user.id)
     @name = Daru::Vector.new [@user.name]
     @activist = Daru::Vector.new [@learningstyles.activisttotal]
     @reflector = Daru::Vector.new [@learningstyles.reflectortotal]

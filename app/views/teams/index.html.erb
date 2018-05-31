@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
 <h1>Teams</h1>
 
 <table class="table">
@@ -16,7 +23,7 @@
         </td>
         <td><%= link_to 'Members', team_teaminvites_path(team.id) %></td>
         <td><%= link_to 'Edit', edit_organization_team_path(team.organization,team) %></td>
-        <td><%= link_to 'Destroy', [team.organization,team], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [team.organization,team], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_team' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,3 +32,6 @@
 <br>
 
 <%= link_to 'New Team', new_organization_team_path %>
+</body>
+</html>
+

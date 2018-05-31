@@ -1,0 +1,1155 @@
+<%= simple_form_for([@learningstyle.user, @learningstyle], remote: true) do |form| %>
+<h2 class='text-center'>Question: <%= learningstyle.completed_no + 1  %> </h2>
+<div class="row">
+<div class="col-md-12" id="form">
+<% if learningstyle.completed_no == 0 %>
+  <div class="form-group">
+    1. I have strong beliefs what is right and wrong, good and bad.
+  <div class="custom-control custom-radio">
+    <%= form.radio_button :question1, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question1_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question1, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question1_false">Disggree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 1 %> 
+  <div class="form-group ">
+    2. I often act without considering the possible consequences.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question2, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question2_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question2, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question2_false">Disggree</label>
+  </div>
+  </div>
+  <% end %>
+
+ <% if learningstyle.completed_no == 2 %> 
+  <div class="form-group 2>">
+    3. I tend to solve problems using a step-by-step approach.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question3, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question3_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question3, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question3_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 3 %> 
+<div class="form-group 3">
+    4. I believe that formal procedures and policies restrict people.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question4, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question4_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question4, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question4_false">Disggree</label>
+  </div>
+  </div>
+<% end %>
+
+<% if learningstyle.completed_no == 4 %> 
+<div class="form-group 4">
+    5. I have a reputation for saying that i think, simply and directly.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question5, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question5_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question5, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question5_false">Disggree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 5 %> 
+  <div class="form-group">
+    6. I often find that actions based on feelings are as good as those based on careful thought and analysis.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question6, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question6_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question6, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question6_false">Disggree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 6 %> 
+  <div class="form-group">
+    7. I like the sort of work where  I have time for thorough preparation and implementation.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question7, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question7_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question7, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question7_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 7 %> 
+  <div class="form-group">
+    8. I regulary question people about their basic assumptions.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question8, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question8_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question8, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question8_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 8 %> 
+  <div class="form-group">
+    9. What matters most is whether something works in practice.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question9, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question9_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question9, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question9_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 9 %> 
+  <div class="form-group">
+    10. I actively seek out new experiences.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question10, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question10_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question10, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question10_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+  <% if learningstyle.completed_no == 10 %> 
+  <div class="form-group">
+    11. When I hear about a new idea or approach I immediately start working out how to apply it in practice.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question11, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question11_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question11, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question11_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 11 %> 
+  <div class="form-group">
+    12. I am keen on self-discipline such as watching my diet, takaing regular exercise, sticking to a fixed rountine, ect.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question12, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question12_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question12, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question12_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 12 %> 
+  <div class="form-group">
+    13. I take pride in doing a through job.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question13, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question13_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question13, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question13_false">Disggree</label>
+  </div>
+  </div>
+ <% end %>
+
+<% if learningstyle.completed_no == 13 %> 
+  <div class="form-group">
+    14. I get on best with logical, analytical people and less well with spontaneous, 'irrational' people.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question14, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question14_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question14, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question14_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 14 %> 
+  <div class="form-group">
+    15. I take care over the interpretation of data available to me and avoid jumping to conclusions.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question15, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question15_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question15, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question15_false">Disggree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 15 %> 
+  <div class="form-group">
+    16. I like to reach a decision carefully after weighing up many alternatives.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question16, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question16_true">Aggree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question16, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question16_false">Disggree</label>
+  </div>
+  </div>
+ <% end %>
+
+<% if learningstyle.completed_no == 16 %> 
+  <div class="form-group">
+    17. I'm attracted more to novel, unsual ideas than practial ones.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question17, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question17_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question17, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question17_false">Disgree</label>
+  </div>
+  </div>
+   <% end %>
+
+<% if learningstyle.completed_no == 17 %> 
+  <div class="form-group">
+    18. I don't like disorganised things and prefer to fit things into a coherent pattern.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question18, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question18_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question18, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question18_false">Disgree</label>
+  </div>
+  </div>
+ <% end %>
+
+<% if learningstyle.completed_no == 18 %> 
+  <div class="form-group">
+    19. I accept and stick to laid down procedures and policies so long as I regard them as an afficient way of getting the job done.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question19, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question19_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question19, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question19_false">Disgree</label>
+  </div>
+  </div>
+ <% end %>
+
+<% if learningstyle.completed_no == 19 %> 
+  <div class="form-group">
+    20. I like to relate my actions to a general principle.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question20, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question20_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question20, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question20_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 20 %> 
+<div class="form-group">
+  21. In discussions I like to get straight to the point.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question21, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question21_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question21, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question21_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 21 %> 
+  <div class="form-group">
+    22. I tend to have distant, rather than formal relationships with people at work.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question22, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question22_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question22, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question22_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 22 %> 
+  <div class="form-group">
+    23. I thrive on the challenge of tackling something new and different.  
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question23, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question23_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question23, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question23_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 23 %> 
+  <div class="form-group">
+    24. I enjoy fun-loving spontaneous people.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question24, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question24_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question24, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question24_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 24 %> 
+   <div class="form-group">
+    25. I pay meticulous attention to detail before coming to a conclusion.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question25, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question25_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question25, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question25_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 25 %> 
+  <div class="form-group">
+   26. I find it difficult to produce ideas on impulse.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question26, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question26_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question26, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question26_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 26 %> 
+  <div class="form-group">
+    27. I believe in coming to the point immediately.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question27, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question27_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question27, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question27_false">Disgree</label>
+  </div>
+  </div>
+<% end %>
+
+<% if learningstyle.completed_no == 27 %> 
+  <div class="form-group">
+    28. I am careful not to jump to conclusions too quickly.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question28, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question28_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question28, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question28_false">Disgree</label>
+  </div>
+  </div>
+<% end %>
+
+<% if learningstyle.completed_no == 28 %> 
+  <div class="form-group">
+    29. I prefer to have as many sources of information as possible - the more data to think over the better.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question29, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question29_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question29, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question29_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 29 %> 
+  <div class="form-group">
+    30. Flippant people who don't take things seriously enough usually irritate me.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question30, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question30_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question30, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question30_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 30 %> 
+  <div class="form-group">
+    31. I listen to other people's point of view before putting my own forward.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question31, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question31_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question31, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question31_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 31 %> 
+  <div class="form-group">
+    32. I tend to be open about how I'm feeling.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question32, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question32_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question32, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question32_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 32 %> 
+  <div class="form-group">
+    33. In discussions I enjoy watching the manoeuvrings of the other participants. 
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question33, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question33_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question33, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question33_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 33 %> 
+  <div class="form-group">
+    34. I prefer to respond to events on a spontaneous, flexible basis rather plan things out in advance.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question34, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question34_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question34, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question34_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 34 %> 
+  <div class="form-group">
+    35. I tend to e attracted to techniques such as network analysis, flow charts, branching programmes, contingency planning etc.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question35, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question35_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question35, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question35_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 35 %> 
+  <div class="form-group">
+    36. It worries me if I have ti rush out a piece of work to meet a tight deadline.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question36, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question36_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question36, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question36_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 36 %> 
+  <div class="form-group">
+    37. I tend to judge people's ideas on their practical merits.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question37, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question37_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question37, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question37_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 37 %> 
+  <div class="form-group">
+    38. Quiet, thoughtful people who want tend to make me feel uneasy.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question38, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question38_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question38, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question38_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 38 %> 
+  <div class="form-group">
+    39. I often get irritated by people who want to  rush things.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question39, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question39_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question39, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question39_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 39 %> 
+  <div class="form-group">
+    40. It is more important to enjoy the present momentthan to think about the past or future.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question40, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question40_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question40, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question40_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 40 %> 
+  <div class="form-group">
+   41. I think that decisions based on thorough analysis of all the information are sounder than those based on intuition.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question41, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question41_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question41, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question41_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 41 %> 
+  <div class="form-group">
+    42. I tend to be a perfectionist.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question42, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question42_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question42, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question42_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 42 %> 
+  <div class="form-group">
+    43. In discussions I usually produce lots of spontaneous ideas. the past or future.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question43, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question43_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question43, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question43_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 43 %> 
+  <div class="form-group">
+   44. In meetings I put forward realistic ideas.
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question44, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question44_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question44, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question44_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 44 %> 
+  <div class="form-group">
+    45. More often than not, rules are there to be broken.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question45, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question45_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question45, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question45_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 45 %> 
+  <div class="form-group">
+     46. I prefer to stand back from a situation and consider all the perspectives.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question46, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question46_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question46, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question46_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 46 %> 
+  <div class="form-group">
+     47. I can often see inconsistencies and weaknesses in other people’s arguments.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question47, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question47_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question47, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question47_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 47 %> 
+  <div class="form-group">
+    48. On balance I talk more than I listen.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question48, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question48_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question48, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question48_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 48 %> 
+  <div class="form-group">
+    49. I can often see better, more practical ways to get things done.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question49, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question49_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question49, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question49_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 49 %> 
+  <div class="form-group">
+    50. I think written reports should be short and to the point.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question50, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question50_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question50, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question50_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 50 %> 
+  <div class="form-group">
+    51. I believe that rational, logical thinking should win the day.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question51, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question51_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question51, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question51_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 51 %> 
+  <div class="form-group">
+    52. I tend to discuss specific things with people rather than engaging in social discussion. ect.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question52, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question52_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question52, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question52_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 52 %> 
+  <div class="form-group">
+    53. I like people who approach things realistically rather than theoretically.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question53, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question53_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question53, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question53_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 53 %> 
+  <div class="form-group">
+    54. In discussions I get impatient with irrelevancies and digressions.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question54, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question54_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question54, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question54_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 54 %> 
+  <div class="form-group">
+    55. If I have a report to write I tend to produce lots of drafts before settling on the final version.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question55, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question55_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question55, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question55_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 55 %> 
+  <div class="form-group">
+    56. I am keen to try things out to see if they work in practice.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question56, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question56_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question56, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question56_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 56 %> 
+  <div class="form-group">
+     57. I am keen to reach answers via a logical approach.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question57, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question57_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question57, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question57_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 57 %> 
+  <div class="form-group">
+     58. I enjoy being the one that talks a lot.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question58, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question58_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question58, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question58_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 58 %> 
+  <div class="form-group">
+    59. In discussions I often find I am realist, keeping people to the point and avoiding wild speculations.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question59, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question59_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question59, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question59_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+
+<% if learningstyle.completed_no == 59 %> 
+  <div class="form-group">
+    60. I like to ponder many alternatives before making up my mind.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question60, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question60_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question60, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question60_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 60 %> 
+  <div class="form-group">
+    61. I like to ponder many alternatives before making up my mind.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question61, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question61_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question61, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question61_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 61 %> 
+  <div class="form-group">
+    62. In discussions with people I often find i am the most dispassionate and objective.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question62, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question62_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question62, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question62_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 62 %> 
+  <div class="form-group">
+    63. in discussion I'm more likely to adopt a 'low profile' than take the lead and do most of the talking.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question63, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question63_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question63, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question63_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 63 %> 
+  <div class="form-group">
+    64. I like to be able to relate current actions to a long-term bigger picture.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question64, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question64_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question64, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question64_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+<% if learningstyle.completed_no == 64 %> 
+  <div class="form-group">
+    65. when things go wrong I am happy to shrug it off and 'put it down to experience'.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question65, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question65_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question65, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question65_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 65 %> 
+  <div class="form-group">
+     66. I tend to reject wild, spontaneous ideas as being impractical.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question66, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question66_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question66, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question66_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 66 %> 
+  <div class="form-group">
+    67. it's best to think carefully before taking action.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question67, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question67_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question67, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question67_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 67 %> 
+  <div class="form-group">
+    68. On Balance I do the listening rather than the talking.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question68, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question68_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question68, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question68_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 68 %> 
+  <div class="form-group">
+    69. I tend to be tough on people who find it difficult to adopt a logical approach.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question69, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question69_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question69, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question69_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 69 %> 
+  <div class="form-group">
+    70. most times I believe the end justifies the means.60. I like to ponder many alternatives before making up my mind.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question70, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question70_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question70, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question70_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 70 %> 
+  <div class="form-group">
+     71. I don't mind hurting people's feelings so long as the job get's done.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question71, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question71_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question71, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question71_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 71 %> 
+  <div class="form-group">
+    72. I find the formally of having specific objectives and plans stifling.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question72, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question72_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question72, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question72_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 72 %> 
+  <div class="form-group">
+    73. I'm usually one of the people who puts life into the party.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question73, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question73_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question73, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question73_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 73 %> 
+  <div class="form-group">
+    74.I do whatever is expected to get the job done.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question74, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question74_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question74, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question74_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 74 %> 
+  <div class="form-group">
+    75. I quickly get bored with methodical, detailed work.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question75, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question75_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question75, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question75_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 75 %> 
+  <div class="form-group">
+    76. I am keen on exploring the basic assumptions, principles and theories underpinning things and events.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question76, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question76_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question76, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question76_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 76 %> 
+  <div class="form-group">
+    77. I'm always interested to find out what people think.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question77, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question77_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question77, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question77_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 77 %> 
+  <div class="form-group">
+    78. I like meetings to be run on methodical lines, sticking to a laid down agenda,ect.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question78, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question78_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question78, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question78_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 78 %> 
+  <div class="form-group">
+    79. I steer clear of subjective or ambiguous topics.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question79, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question79_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question79, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question79_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+  <% if learningstyle.completed_no == 79 %> 
+  <div class="form-group">
+    80. I enjoy the drama and excitement of a crisis situations.
+    <div class="custom-control custom-radio">
+    <%= form.radio_button :question80, 'true',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question80_true">Agree</label>
+  </div>
+   <div class="custom-control custom-radio">
+    <%= form.radio_button :question80, 'false',class: "custom-control-input" %>
+    <label class="custom-control-label" for="learningstyle_question80_false">Disgree</label>
+  </div>
+  </div>
+  <% end %>
+
+</div>
+</div>
+
+ <% if learningstyle.completed_no == 80 %>
+<div class="row">
+  <div class="form-group">
+    <div class="col-md-12 center-block ">
+    <%= form.submit 'Submit',class: "btn btn-primary" %>
+    </div>
+  </div>
+  </div>
+    <% end %>
+<% end %>
+
+<div class="col-md-12 offset-0">
+<div class="" id="row">
+<%= learningstyle.completed_no %> out of 80
+</div>
+<div class="progress">
+  <div class="progress-bar bg-success" role="progressbar" style="width: <%= learningstyle.completed_no %>%" aria-valuenow="<%= learningstyle.completed_no %>" aria-valuemin="0" aria-valuemax="100"><%= learningstyle.completed_no %> complete</div>
+</div>
+</div>
+
+<script type="text/javascript">
+  (function($) {
+$('.edit_learningstyle input[type=radio]').click(function () {
+$('.edit_learningstyle').submit();
+ }); 
+ })(jQuery);
+</script>

@@ -9,7 +9,7 @@ development:
   <<: *default
   database: QuestApp_development
   username: postgres
-  password: ABC123@z
+  password: Desh1511
 
 
 production:

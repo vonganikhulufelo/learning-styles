@@ -1,7 +1,7 @@
 class Learningstyle < ApplicationRecord
     belongs_to :user
-    validates :question10,:question1,:question2,:question3,:question4,:question5,:question6,:question6,:question7,:question8,:question9, presence: true
-    validates :question20,:question11,:question12,:question13,:question14,:question15,:question16,:question16,:question17,:question18,:question19, presence: true
+    #validates :question10,:question1,:question2,:question3,:question4,:question5,:question6,:question6,:question7,:question8,:question9, presence: true
+    #validates :question20,:question11,:question12,:question13,:question14,:question15,:question16,:question16,:question17,:question18,:question19, presence: true
 
    # validates :question30,:question21,:question22,:question23,:question24,:question25,:question26,:question26,:question27,:question28,:question29, presence: true 
    # validates :question40,:question31,:question32,:question33,:question34,:question35,:question36,:question36,:question37,:question38,:question39, presence: true
@@ -19,10 +19,22 @@ class Learningstyle < ApplicationRecord
     arraytheorist = [self.question1, self.question3, self.question8, self.question12, self.question14, self.question18, self.question20, self.question22, self.question26, self.question30, self.question42, self.question47, self.question51, self.question57, self.question61, self.question63, self.question68, self.question75, self.question77, self.question78]
     arraypragmatist = [self.question5, self.question9, self.question11, self.question19, self.question21, self.question27, self.question35, self.question37, self.question44, self.question49, self.question50, self.question53, self.question54, self.question56, self.question59, self.question65, self.question69, self.question70, self.question73, self.question80]
 
+    arrayCompltedNo = [self.question2, self.question4, self.question6, self.question10, self.question17, self.question23, self.question24, self.question32, self.question34, self.question38, self.question40, self.question43, self.question45, self.question48, self.question58, self.question64, self.question71, self.question72, self.question74, self.question79,
+      self.question7, self.question13, self.question15, self.question16, self.question25, self.question28, self.question29, self.question31, self.question33, self.question36, self.question39, self.question41, self.question46, self.question52, self.question55, self.question60, self.question62, self.question66, self.question67, self.question76,
+      self.question1, self.question3, self.question8, self.question12, self.question14, self.question18, self.question20, self.question22, self.question26, self.question30, self.question42, self.question47, self.question51, self.question57, self.question61, self.question63, self.question68, self.question75, self.question77, self.question78,
+    self.question5, self.question9, self.question11, self.question19, self.question21, self.question27, self.question35, self.question37, self.question44, self.question49, self.question50, self.question53, self.question54, self.question56, self.question59, self.question65, self.question69, self.question70, self.question73, self.question80]
+    
     self.activisttotal = 0
     self.reflectortotal = 0
     self.theoristtotal = 0
     self.pragmatisttotal = 0
+    self.completed_no = 0
+
+    arrayCompltedNo.each do | array |
+      if array == 'true' ||  array == 'false'
+        self.completed_no = self.completed_no.to_i + 1
+      end
+    end
     
     arrayactivist.each do | array |
       if array == 'true'

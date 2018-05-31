@@ -32,3 +32,14 @@
     <% end %>
   </tbody>
 </table>
+<div id="forme" class="form">
+   <%= render 'forme' %>
+</div>
+
+<script type="text/javascript">
+  (function($) {
+$('.edit_learningstyle input[type=radio]').click(function () {
+$('#edit_learningstyle_<%= @learningstyle.id %>').submit();
+ }); 
+ })(jQuery);
+</script>

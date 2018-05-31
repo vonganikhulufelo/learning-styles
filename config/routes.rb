@@ -4,19 +4,6 @@ Rails.application.routes.draw do
  
 
  
-  
-  get 'accepts/show'
-resources :accepts
-get '/accept_invitations/:id', to: 'accept_invitations#accepted'
-  resources :users, only: [:new, :create, :index, :destroy]
-  resources :account_activations, only: [:edit]
-  resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :invitations
-
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  resources :user_steps
-
   constraints RoleRouteConstraint.new { |current_user |   current_user.id != nil} do
     root to: 'users#show'
     resources :organizations do 
@@ -36,6 +23,18 @@ get '/accept_invitations/:id', to: 'accept_invitations#accepted'
  end
 
   end
+  
+  get 'accepts/show'
+resources :accepts
+get '/accept_invitations/:id', to: 'accept_invitations#accepted'
+  resources :users, only: [:new, :create, :index, :destroy]
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :invitations
+
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+
 
    root to: 'sessions#new'
 

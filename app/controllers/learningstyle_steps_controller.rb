@@ -39,10 +39,12 @@ include Wicked::Wizard
   def update
   	@user = current_user
   	@learningstyle = @user.learningstyles.find(@user.id)
+    if @learningstyles
   	@learningstyle.update(learningstyle_params)
     
     @u = @user.step_no + 1
     @user.update_attribute(:step_no, @u)
+  end
   	render_wizard @learningstyle
   end
 

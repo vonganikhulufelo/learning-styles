@@ -4,10 +4,11 @@ class LearningstylesController < ApplicationController
   # GET /learningstyles
   # GET /learningstyles.json
   def index
+    @user = current_user
+    @learningstyle = @user.learningstyles.find_by_user_id(@user.id)
      @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('learningstyles.activisttotal, learningstyles.reflectortotal, 
       learningstyles.theoristtotal, learningstyles.pragmatisttotal, learningstyles.actstatus, learningstyles.refstatus,
       learningstyles.theostatus, learningstyles.pragstatus').where("teaminvites.user_id = ? AND teaminvites.accepted = ? AND teaminvites.team_id = ?", current_user.id, 'true', 1).group('learningstyles.id')
-    @learningstyles = Learningstyle.all
   end
 
   # GET /learningstyles/1
@@ -30,6 +31,7 @@ class LearningstylesController < ApplicationController
 
   # GET /learningstyles/1/edit
   def edit
+
   end
 
   # POST /learningstyles
@@ -37,34 +39,34 @@ class LearningstylesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @learningstyle = @user.learningstyles.create(learningstyle_params)
-    if current_user.step_no.to_i >= 1
-      redirect_to learningstyle_steps_path
-    else
+    ##if current_user.step_no.to_i >= 1
+      #@learningstyles = @user.learningstyles.find_by_user_id(current_user.id)
+      #redirect_to edit_user_learningstyle_path(current_user.id, @learningstyles.id)
+    #else
     respond_to do |format|
       if @learningstyle.save
         @user = User.find(@learningstyle.user_id)
         @user.update_attribute(:step_no, 1)
-        format.html { redirect_to learningstyle_steps_path, notice: 'Learningstyle was successfully created.' }
+        format.html { redirect_to edit_user_learningstyle_path(current_user.id, @learningstyle.id), notice: 'Learningstyle was successfully created.' }
         format.json { render :show, status: :created, location: @learningstyle }
       else
         format.html { render :new }
         format.json { render json: @learningstyle.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
   end
 
   # PATCH/PUT /learningstyles/1
   # PATCH/PUT /learningstyles/1.json
   def update
+    @learningstyle.update(learningstyle_params)
+
+    @u = current_user.step_no + 1
+    @user.update_attribute(:step_no, 0)
     respond_to do |format|
-      if @learningstyle.update(learningstyle_params)
-        format.html { redirect_to @learningstyle, notice: 'Learningstyle was successfully updated.' }
-        format.json { render :show, status: :ok, location: @learningstyle }
-      else
-        format.html { render :edit }
-        format.json { render json: @learningstyle.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to edit_user_learningstyle_path(current_user.id,@learningstyle.id) }
+      format.js
     end
   end
 
@@ -81,7 +83,8 @@ class LearningstylesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_learningstyle
-      @learningstyle = Learningstyle.find(params[:id])
+      @user = User.find(params[:user_id])
+    @learningstyle = @user.learningstyles.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

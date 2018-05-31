@@ -1,0 +1,8 @@
+
+$('#row').hide();
+$('.progress').hide();
+$('#edit_learningstyle_<%= @learningstyle.id %>').fadeOut(10, function(){
+	$(this).remove();
+	$('#forme').prepend("<%= j render @learningstyle %>");
+});
+

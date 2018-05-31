@@ -2284,7 +2284,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   background-color: #7dd8b4;
 }
 
-.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before {
+#learningstyle_question1_true, .was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before {
   -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(86, 204, 157, 0.25);
           box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(86, 204, 157, 0.25);
 }

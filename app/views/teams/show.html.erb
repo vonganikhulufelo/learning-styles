@@ -1,4 +1,4 @@
-<h4 class="text-center">(<%= @teamsmembers.to_a.count %>) Members</h4>
+-<h4 class="text-center">(<%= @teamsmembers.to_a.count %>) Members</h4>
 <table class="table">
   <thead>
     <tr>
@@ -18,6 +18,7 @@
     <% @teamsmembers.each do |learningstyle| %>
       <tr>
         <td><%= link_to learningstyle.name, user_learningstyle_path(learningstyle.user_id, learningstyle.learningstyle_id) %></td>
+        <td><%= learningstyle.email %></td>
         <td><%= learningstyle.activisttotal %></td>
         <td><%= learningstyle.reflectortotal %></td>
         <td><%= learningstyle.theoristtotal %></td>
@@ -30,4 +31,58 @@
     <% end %>
   </tbody>
 </table>
+
+
+<div id="container" style="height: 500px"></div>
+<script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        text: '基础雷达图'
+    },
+    tooltip: {},
+    legend: {
+        data: <%= raw @data_frame[0].to_a %>
+    },
+    radar: {
+        // shape: 'circle',
+        name: {
+            textStyle: {
+                color: '#fff',
+                backgroundColor: '#999',
+                borderRadius: 3,
+                padding: [3, 5]
+           }
+        },
+        indicator: [
+           { name: 'ACTIVITIST', max: 20},
+           { name: 'REFLECTOR', max: 20},
+           { name: 'THEROIST', max: 20},
+           { name: 'PRAGMATIST', max: 20},
+           
+        ]
+    },
+    series: [{
+        name: '预算 vs 开销（Budget vs spending）',
+        type: 'radar',
+        // areaStyle: {normal: {}},
+       
+        data : [
+        <% @data_frame.each_row_with_index do |data, index| %>
+            {
+                value : [<%= data[1].to_i %>,<%= data[2].to_i %>,<%= data[3].to_i %>,<%= data[4].to_i %>],
+                name : '<%= data[0].to_s %>'
+            },
+            <% end %>
+        ]
+    }]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+
 

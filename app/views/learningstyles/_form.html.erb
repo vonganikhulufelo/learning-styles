@@ -1,115 +1,14 @@
-<%= simple_form_for([@learningstyle.user, @learningstyle]) do |form| %>
-<div class="row">
-<div class="col-md-6">
-  <div class="form-group"><label>1. I have strong beliefs what is right and wrong, good and bad.</label>
-    
-    <%= form.input :question1, :label => '' , :collection => [['Agree ','true'],['Disagree','false ']], :as => :radio_buttons, :required => true%>
-  </div>
 
-  <div class="form-group">
-    2. I often act without considering the possible consequences.
-    <%= form.input :question2, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons%>
-  </div>
+<%= form_for([@learningstyle.user, @learningstyle]) do |form| %>
 
-  <div class="form-group">
-    3. I tend to solve problems using a step-by-step approach.
-    <%= form.input :question3, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
+  
 
-  <div class="form-group">
-    4. I believe that formal procedures and policies restrict people.
-    <%= form.input :question4, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-   <div class="form-group">
-    5. I have a reputation for saying that i think, simply and directly.
-    <%= form.input :question5, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    6. I often find that actions based on feelings are as good as those based on careful thought and analysis.
-    <%= form.input :question6, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    7. I like the sort of work where  I have time for thorough preparation and implementation.
-    <%= form.input :question7, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    8. I regulary question people about their basic assumptions.
-    <%= form.input :question8, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    9. What matters most is whether something works in practice.
-    <%= form.input :question9, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    10. I actively seek out new experiences.
-    <%= form.input :question10, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-</div> 
-<div class="col-md-6">
-  <div class="form-group">
-    11. When I hear about a new idea or approach I immediately start working out how to apply it in practice.
-    <%= form.input :question11, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    12. I am keen on self-discipline such as watching my diet, takaing regular exercise, sticking to a fixed rountine, ect.
-    <%= form.input :question12, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    12. I take pride in doing a through job.
-    <%= form.input :question13, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    14. I get on best with logical, analytical people and less well with spontaneous, 'irrational' people.
-    <%= form.input :question14, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    15. I take care over the interpretation of data available to me and avoid jumping to conclusions.
-    <%= form.input :question15, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    16. I like to reach a decision carefully after weighing up many alternatives.
-    <%= form.input :question16, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    17. I'm attracted more to novel, unsual ideas than practial ones.
-    <%= form.input :question17, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    18. I don't like disorganised things and prefer to fit things into a coherent pattern.
-    <%= form.input :question18, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    19. I accept and stick to laid down procedures and policies so long as I regard them as an afficient way of getting the job done.
-    <%= form.input :question19, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-
-  <div class="form-group">
-    20. I like to relate my actions to a general principle.
-    <%= form.input :question20, :label => '' , :collection => [['Agree','true'],['Disagree','false']], :as => :radio_buttons, :required => true%>
-  </div>
-</div>
- <%= form.hidden_field :user_id, id: :learningstyle_user_id, :value => current_user.id %>
-<div class="row">
+  <%= form.hidden_field :user_id,value: current_user.id %>
    
-  <div class="form-group">
-    <div class="col-md-12 center-block ">
-    <%= form.submit 'Submit',class: "btn btn-primary offset-6" %>
-    </div>
-  </div>
-  </div>
-  </div>
+  
+    <%= form.submit 'Start',class: "btn btn-primary" %>
+   
+
 <% end %>
+
+

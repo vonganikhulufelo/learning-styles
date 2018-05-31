@@ -5,20 +5,59 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @organization = Organization.find(params[:organization_id])
+    @@organization = @organization
     @teams = @organization.teams
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @org = Organization.find(params[:organization_id])
+    @org = Organization.find(params[:id])
     @team = @org.teams.find_by(id: params[:id])
-    @teamsmembers = User.joins([organizations: {teams: :teaminvites}], :learningstyles).select('teaminvites.name,teaminvites.user_id,
+    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('teaminvites.name,teaminvites.email, teaminvites.user_id,
      learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,
       learningstyles.id as learningstyle_id, learningstyles.actstatus, learningstyles.refstatus, learningstyles.theostatus,
-       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id, learningstyles.id')
-  end
+       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id,users.id, learningstyles.id')
+    @namearray = []
+    @activistarray = []
+    @refelctorarray = []
+    @theroistarray = []
+    @pragarray = []
 
+    @teamsmembers.each do |member| 
+      @user = User.find(member.user_id)
+      @learningstyles = @user.learningstyles.find_by_user_id(@user.id)
+      @namearray.push(@user.name)
+      @activistarray.push(@learningstyles.activisttotal)
+      @refelctorarray.push(@learningstyles.reflectortotal)
+      @theroistarray.push(@learningstyles.theoristtotal)
+      @pragarray.push(@learningstyles.pragmatisttotal)
+    end
+
+    @name = Daru::Vector.new(@namearray)
+    @activist = Daru::Vector.new(@activistarray)
+    @reflector = Daru::Vector.new(@refelctorarray)
+    @theorist = Daru::Vector.new(@theroistarray)
+    @prag = Daru::Vector.new(@pragarray)
+
+
+  @data_frame = Daru::DataFrame.new(
+  {
+    'name' => @name,
+    'activist' => @activist,
+    'reflector' => @reflector,
+    'theorist' => @theorist,
+    'pragmatist' => @prag
+  },
+)
+    #@learningstyles = @user.learningstyles.find_by(user_id: @user.id)
+    #@name = Daru::Vector.new [@user.name]
+    #@activist = Daru::Vector.new [@learningstyles.activisttotal]
+    #@reflector = Daru::Vector.new [@learningstyles.reflectortotal]
+    #@theorist = Daru::Vector.new [@learningstyles.theoristtotal]
+    #@pragmatist = Daru::Vector.new [@learningstyles.pragmatisttotal]
+
+  end
   # GET /teams/new
   def new
     @organization = Organization.find(params[:organization_id])
@@ -65,11 +104,13 @@ class TeamsController < ApplicationController
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
-    @team.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Team was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @team.destroy   
+     
+   respond_to do |format|   
+      format.html { redirect_to team_url, notice: 'Itemm was successfully removed.' }   
+      format.json { head :no_content }   
+      format.js   { render :layout => false }   
+   end
   end
 
   private

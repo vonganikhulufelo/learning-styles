@@ -1,4 +1,11 @@
 class AcceptsController < ApplicationController
+  
+ def index
+
+
+
+
+ end
   def show
   	@teaminvite = Teaminvite.find(params[:id])
   	if @teaminvite.accepted?
@@ -10,4 +17,13 @@ class AcceptsController < ApplicationController
 	  	redirect_to root_path
 	 end
   end
+
+  def create
+      respond_to do | format |
+      format.html { redirect_to accepts_path}
+      format.json { }
+    end
+  end
+
+
 end
