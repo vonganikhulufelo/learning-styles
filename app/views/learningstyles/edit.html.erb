@@ -5,37 +5,14 @@
 	  <%= javascript_include_tag 'application' %>
 </head>
 <body>
-<h1 class='text-center'>Learning Styles Questionnaire</h1>
-
-<div class="wrapper">
-	<div class="me" id="forme">
-		<%= render @learningstyle %>
-	</div>
+<h1>Editing Learningstyle</h1>
+<div class="container">
+</div>
+<div class="row" id="forme">
+<%= render @learningstyle %>
+</div>
 </div>
 
 </body>
 </html>
 
-<style>
-	.wrapper{
-		background: white;
-		border: 0 none;
-		border-radius: 3px;
-		box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-		padding: 20px 30px;
-		
-		box-sizing: border-box;
-		width: 60%;
-		margin: 0 10%;
-		
-		/*stacking fieldsets above each other*/
-		position: absolute;
-	}
-
-	.me{
-		text-align: center;
-	}
-	.custom-control-input{
-		padding: 25px;
-	}
-</style>
