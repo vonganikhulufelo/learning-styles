@@ -1,8 +1,12 @@
-<h1 class='text-center'>Learning Styles Questionnaire</h1>
+<div class="wrapper">
+  <h3 class="text-center">Learning Styles Questionnaire</h3>
+  <p class="lead">This questionnaire is designed to find out your preferred learning style(s). Over the years you have probably developed learning 'habits' that help you benefit more from some experiences than from others. Since you probably unaware of this, this questionnaire will help you pinpoint your learning preferences so that you are in a better position to select learning experiences that suit your style. </p>
+  <hr class="my-4">
+  <p class="lead">There is no time limit to this questionnaire. It will probably take you 10-15 minutes. The accuracy of the results depends on how honest you can be. There are no right or wrong answers. If you agree more than you disagree with a statement click on "Agree". If you disagree more than you agree click on "Disagree". Be sure to complete all questions.</p>
 
-<p>This questionnaire is designed to find out your preferred learning style(s). Over the years you have probably developed learning 'habits' that help you benefit more from some experiences than from others. Since you probably unaware of this, this questionnaire will help you pinpoint your learning preferences so that you are in a better position to select learning experiences that suit your style. </p>
-
-<p>There is no time limit to this questionnaire. It will probably take you 10-15 minutes. The accuracy of the results depends on how honest you can be. There are no right or wrong answers. If you agree more than you disagree with a statement click on "Agree". If you disagree more than you agree click on "Disagree". Be sure to complete all questions.
-</p>
-
-<%= render 'form', learningstyle: @learningstyle %>
+  <p class="lead">
+    <div class="row col-md-3 offset-5">
+    <%= render 'form', learningstyle: @learningstyle %>
+    </div>
+  </p>
+</div>

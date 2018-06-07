@@ -1,32 +1,19 @@
--<h4 class="text-center">(<%= @teamsmembers.to_a.count %>) Members</h4>
+<h4 class="text-center">(<%= @teamsmembers.to_a.count %>) Member(s)</h4>
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Activisttotal</th>
-      <th>Reflectortotal</th>
-      <th>Theorist</th>
-      <th>Pragmatist</th>
-      <th>Activisttotal</th>
-      <th>Reflectortotal</th>
-      <th>Theorist</th>
-      <th>Pragmatist</th>
+      <th>Email</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @teamsmembers.each do |learningstyle| %>
       <tr>
-        <td><%= link_to learningstyle.name, user_learningstyle_path(learningstyle.user_id, learningstyle.learningstyle_id) %></td>
+        <td><%= link_to learningstyle.name, user_learningstyle_path(learningstyle.user_id, learningstyle.learningstyle_id) %><% if learningstyle.admin? %>(maintaner)<% end %></td>
         <td><%= learningstyle.email %></td>
-        <td><%= learningstyle.activisttotal %></td>
-        <td><%= learningstyle.reflectortotal %></td>
-        <td><%= learningstyle.theoristtotal %></td>
-        <td><%= learningstyle.pragmatisttotal %></td>
-        <td><%= learningstyle.actstatus %></td>
-        <td><%= learningstyle.refstatus %></td>
-        <td><%= learningstyle.theostatus %></td>
-        <td><%= learningstyle.pragstatus %></td>
+        <td><%= learningstyle.team_name %></td>
       </tr>
     <% end %>
   </tbody>
@@ -41,7 +28,7 @@ var app = {};
 option = null;
 option = {
     title: {
-        text: '基础雷达图'
+        text: 'learningstyle Score'
     },
     tooltip: {},
     legend: {
@@ -66,7 +53,7 @@ option = {
         ]
     },
     series: [{
-        name: '预算 vs 开销（Budget vs spending）',
+        name: 'Learningstyles Score）',
         type: 'radar',
         // areaStyle: {normal: {}},
        

@@ -1,45 +1,16 @@
-<h1>Learningstyles</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Activisttotal</th>
-      <th>Reflectortotal</th>
-      <th>Theorist</th>
-      <th>Pragmatist</th>
-      <th>Activisttotal</th>
-      <th>Reflectortotal</th>
-      <th>Theorist</th>
-      <th>Pragmatist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="wrapper">
+  <h1>Activists</h1>
+<p class="lead">Activists involve themselves fully and without bias in new experience.They enjoy the here and now and are happy to be dominated by immediate experience.They are open minded, not sceptical, and this tends to make them enthusiastic about anything new.Their philosophy is "I'll try anything once". They tend to act first and consider the consequences afterwards.Their days are filled with activity.They tackle problems by brainstorming.As soon as the excitement from on activity has died down they are busy looking for the next.They tend to thrive on the challenge of new experiences but atr bored with implementation and long term consolidation.They are gregarious people constantly involving themselves with others but in doing so they seek to center all activities around themselves</p>
 
-  <tbody>
-    <% @teamsmembers.each do |learningstyle| %>
-      <tr>
-        <td></td>
-        <td><%= learningstyle.activisttotal %></td>
-        <td><%= learningstyle.reflectortotal %></td>
-        <td><%= learningstyle.theoristtotal %></td>
-        <td><%= learningstyle.pragmatisttotal %></td>
-        <td><%= learningstyle.actstatus %></td>
-        <td><%= learningstyle.refstatus %></td>
-        <td><%= learningstyle.theostatus %></td>
-        <td><%= learningstyle.pragstatus %></td>
-        <td><%#= link_to 'Edit', edit_user_learningstyle_path(current_user.id, learningstyle.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div id="forme" class="form">
-   <%= render 'forme' %>
+
+<h1>Reflectiors</h1> 
+<p class="lead">Reflectors like to stand back ro ponder experience and observe them from many different perspectives.They collect data, both first hand and from others, and prefer to think about it thoroughly and events is what counts so they tend to postpone reaching definitive conclusions for as long as possible.Their philosophy is to be cautious.They are throughtful people to take back seat in meetings and discussion before making their own points.they tend to adopt a low profile and have a slightly distant, tolerant unruffled air about them.when they act it is part of a wide picture which includes the last as well as the present and others observations as well as their own.</p>
+
+
+<h1>Theorists</h1> 
+<p class="lead">Theorists adaot and intergrate observations into complex but logically sound theories.They think problems through in a vertical, step by step logical way.They assimilate disparate facts into coherent theories.They tend to be prefectionsist who won't rest until things are tidy and fit into rational scheme. They like to analyse and synthesisem They are keen on basic assumptions, principles, theories models and systems thinking. Their philosophy prizes rationality and logic. 'if it's logical it's good'.Questions they frequently ask are "does it make sense", "how does this fit with that?" And "what are the basic assumptions?".They tend to be detached, analytical and dedicated to rational objectivity rather than anything subjective or ambiguous. Their approach to problems is consistently logical. This is their 'mental set' and thry rigidly reject anything that doesn't fit with it. They prefer to maximize certainty and feel uncomfortable with subjective judgements, lateral thinking and anything flippant.</p>
+
+
+<h1>Pragmatistic</h1> 
+<p class="lead">Pragmatistic are keen on trying out ideas, theories and techniques to see if they work in practice.They positivity search out new ideas and take the first opportunity to experiment with applications.They are the sort of people who return from management courses brimming with new ideas that they want to try out in practice. They like to get in with things and act quickly and confidently on ideas that attracts them. they tend to be impatient with ruminating and open minded discussions. They are essentially practical, down to earth people who like making practical decisions and solve problems.They respond to problems and opportunities as a challenge. Their philosophy is 'there is always a better way' and 'if it works its good'.</p>
 </div>
-
-<script type="text/javascript">
-  (function($) {
-$('.edit_learningstyle input[type=radio]').click(function () {
-$('#edit_learningstyle_<%= @learningstyle.id %>').submit();
- }); 
- })(jQuery);
-</script>

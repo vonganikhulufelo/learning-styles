@@ -118,7 +118,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    mustermann (1.0.2)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
     nio4r (2.3.0)
@@ -131,8 +130,6 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.4)
-    rack-protection (2.0.1)
-      rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -169,7 +166,6 @@ GEM
       ffi (>= 0.5.0, < 2)
     regexp_parser (0.5.0)
     ruby-ole (1.2.12.1)
-    ruby_http_client (3.3.0)
     rubyzip (1.2.1)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -185,17 +181,9 @@ GEM
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
-    sendgrid-ruby (5.2.0)
-      ruby_http_client (~> 3.2)
-      sinatra (>= 1.4.7, < 3)
     simple_form (4.0.0)
       actionpack (> 4)
       activemodel (> 4)
-    sinatra (2.0.1)
-      mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.1)
-      tilt (~> 2.0)
     spreadsheet (1.1.7)
       ruby-ole (>= 1.0)
     sprockets (3.7.1)
@@ -254,7 +242,6 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 5.0)
   selenium-webdriver
-  sendgrid-ruby
   simple_form
   spreadsheet
   turbolinks (~> 5)

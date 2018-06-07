@@ -12,12 +12,10 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @org = Organization.find(params[:id])
+    @org = Organization.find(params[:organization_id])
     @team = @org.teams.find_by(id: params[:id])
-    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('teaminvites.name,teaminvites.email, teaminvites.user_id,
-     learningstyles.activisttotal, learningstyles.reflectortotal, learningstyles.theoristtotal, learningstyles.pragmatisttotal,
-      learningstyles.id as learningstyle_id, learningstyles.actstatus, learningstyles.refstatus, learningstyles.theostatus,
-       learningstyles.pragstatus').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id,users.id, learningstyles.id')
+    @teamsmembers = User.joins(organizations: [teams: :teaminvites]).joins(:learningstyles).select('teaminvites.name,teaminvites.email, teaminvites.user_id,teams.team_name
+      ,learningstyles.id as learningstyle_id, teaminvites.admin').where("teaminvites.accepted = ? AND teaminvites.team_id = ?", 'true', @team.id).group('teaminvites.id,teams.id,learningstyles.id')
     @namearray = []
     @activistarray = []
     @refelctorarray = []

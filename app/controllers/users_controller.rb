@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    
     respond_to do | format |
       format.html
       format.json { render json: @users }
@@ -15,17 +14,24 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-
     @user = current_user
-    @learningstyles = Learningstyle.find_by_user_id(@user.id)
-    @name = Daru::Vector.new [@user.name]
-    @activist = Daru::Vector.new [@learningstyles.activisttotal]
-    @reflector = Daru::Vector.new [@learningstyles.reflectortotal]
-    @theorist = Daru::Vector.new [@learningstyles.theoristtotal]
-    @pragmatist = Daru::Vector.new [@learningstyles.pragmatisttotal]
-     @organizations = @user.organizations
-      @teams = User.joins(organizations: [teams: :teaminvites]).select('teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, organizations.id as organization_id, teaminvites.admin').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('teaminvites.id, teams.id, organizations.id')
-  end
+    @learningstyles = @user.learningstyles.find_by_user_id(@user.id)
+    if @learningstyles
+      if @learningstyles.completed_no == 80
+      @name = Daru::Vector.new [@user.name]
+      @activist = Daru::Vector.new [@learningstyles.activisttotal]
+      @reflector = Daru::Vector.new [@learningstyles.reflectortotal]
+      @theorist = Daru::Vector.new [@learningstyles.theoristtotal]
+      @pragmatist = Daru::Vector.new [@learningstyles.pragmatisttotal]
+       @organizations = @user.organizations
+        @teams = User.joins(organizations: [teams: :teaminvites]).select('teams.team_name as team_name,teams.id as team_id, organizations.org_name as org_name, organizations.id as organization_id, teaminvites.admin').where("teaminvites.user_id = ? AND teaminvites.accepted = ?", current_user.id, 'true').group('teaminvites.id, teams.id, organizations.id')
+        else
+        redirect_to edit_user_learningstyle_path(@user.id, @user.learningstyles.find_by_user_id(@user.id).id)
+      end
+    else
+      redirect_to new_user_learningstyle_path(@user.id)
+    end
+end
 
   # GET /users/new
   def new

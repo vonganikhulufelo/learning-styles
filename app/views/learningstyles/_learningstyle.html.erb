@@ -1,63 +1,90 @@
+
 <%= form_for([@learningstyle.user, @learningstyle], remote: true) do |form| %>
-<div class="row">
-<div class="col-md-12" id="msform">
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</div>
-</div>
-
-<div class="row">
-   
-  <div class="form-group">
-    <div class="col-md-12 center-block ">
-    <%= form.submit 'Submit',class: "btn btn-primary offset-6" %>
-    </div>
-  </div>
-  </div>
-
-
+<div class="wrapper">
+  <h1 class='text-center'>Learning Styles Questionnaire</h1>
   <ul class="nav nav-tabs">
   <li class="nav-item">
+    <% if (learningstyle.completed_no >= 0 && learningstyle.completed_no < 10) %>
     <a class="nav-link active show" data-toggle="tab" href="#step-1">Step 1</a>
+    <% elsif  learningstyle.completed_no == 80 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-1">Step 1</a>
+    <% else %>
+    <a class="nav-link" data-toggle="tab" href="#step-1">Step 1</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 10 && learningstyle.completed_no < 20 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-2">Step 2</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=20  %>
     <a class="nav-link" data-toggle="tab" href="#step-2">Step 2</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 2</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 20 && learningstyle.completed_no < 30 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-3">Step 3</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=30  %>
     <a class="nav-link" data-toggle="tab" href="#step-3">Step 3</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 3</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 30 && learningstyle.completed_no < 40 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-4">Step 4</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=40 %>
     <a class="nav-link" data-toggle="tab" href="#step-4">Step 4</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 4</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 40 && learningstyle.completed_no < 50 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-5">Step 5</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=50 %>
     <a class="nav-link" data-toggle="tab" href="#step-5">Step 5</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 5</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 50 && learningstyle.completed_no < 60 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-6">Step 6</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=60 %>
     <a class="nav-link" data-toggle="tab" href="#step-6">Step 6</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 6</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 60 && learningstyle.completed_no < 70 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-7">Step 7</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=70 %>
     <a class="nav-link" data-toggle="tab" href="#step-7">Step 7</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 7</a>
+    <% end %>
   </li>
   <li class="nav-item">
+    <% if learningstyle.completed_no >= 70 && learningstyle.completed_no < 80 %>
+    <a class="nav-link active show" data-toggle="tab" href="#step-8">Step 8</a>
+    <% elsif learningstyle.completed_no == 80 || learningstyle.completed_no >=80 %>
     <a class="nav-link" data-toggle="tab" href="#step-8">Step 8</a>
+    <% else %>
+    <a class="nav-link disabled" data-toggle="tab" href="">Step 8</a>
+    <% end %>
   </li>
 </ul>
 
 <div id="myTabContent" class="tab-content">
+  <% if learningstyle.completed_no >= 0 && learningstyle.completed_no < 10 || learningstyle.completed_no == 80 %>
   <div class="tab-pane fade active show" id="step-1">
-    <h2 class="fs-title">Question 1</h2>
-    <h3 class="fs-subtitle">I have strong beliefs what is right and wrong, good and bad.</h3>
+    <% else %>
+    <div class="tab-pane fade" id="step-1">
+   <% end %>
+   <div class="form-group">
+   1. I have strong beliefs what is right and wrong, good and bad.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question1, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question1_true">Aggree</label>
@@ -66,13 +93,10 @@
     <%= form.radio_button :question1, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question1_false">Disggree</label>
   </div>
-        <br>
-        <% if learningstyle.question1 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
-
-    <h2 class="fs-title">Question 2</h2>
-    <h3 class="fs-subtitle">I often act without considering the possible consequences.</h3>
+  </div>
+       
+    <div class="form-group">
+    2. I often act without considering the possible consequences.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question2, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question2_true">Aggree</label>
@@ -81,14 +105,10 @@
     <%= form.radio_button :question2, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question2_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question2 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
+  </div>
 
-    <h2 class="fs-title">Question 3</h2>
-    <h3 class="fs-subtitle">I tend to solve problems using a step-by-step approach.</h3>
+    <div class="form-group">
+    3. I tend to solve problems using a step-by-step approach.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question3, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question3_true">Aggree</label>
@@ -97,14 +117,10 @@
     <%= form.radio_button :question3, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question3_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question3 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
- 
-    <h2 class="fs-title">Question 4</h2>
-    <h3 class="fs-subtitle">I believe that formal procedures and policies restrict people.</h3>
+  </div>
+    
+    <div class="form-group">
+    4. I believe that formal procedures and policies restrict people.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question4, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question4_true">Aggree</label>
@@ -113,14 +129,10 @@
     <%= form.radio_button :question4, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question4_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question4 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
+</div>
  
-    <h2 class="fs-title">Question 5</h2>
-    <h3 class="fs-subtitle">I have a reputation for saying that i think, simply and directly.</h3>
+    <div class="form-group">
+    5. I have a reputation for saying that i think, simply and directly.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question5, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question5_true">Aggree</label>
@@ -129,16 +141,10 @@
     <%= form.radio_button :question5, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question5_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question5 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
-  </fieldset>
+  </div>
 
-  <fieldset>
-    <h2 class="fs-title">Question 6</h2>
-    <h3 class="fs-subtitle">I often find that actions based on feelings are as good as those based on careful thought and analysis.</h3>
+    <div class="form-group">
+    6. I often find that actions based on feelings are as good as those based on careful thought and analysis.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question6, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question6_true">Aggree</label>
@@ -147,14 +153,10 @@
     <%= form.radio_button :question6, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question6_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question6 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
+  </div>
 
-    <h2 class="fs-title">Question 7</h2>
-    <h3 class="fs-subtitle">I like the sort of work where  I have time for thorough preparation and implementation.</h3>
+    <div class="form-group">
+    7. I like the sort of work where  I have time for thorough preparation and implementation.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question7, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question7_true">Aggree</label>
@@ -163,14 +165,10 @@
     <%= form.radio_button :question7, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question7_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question7 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
+  </div>
 
-    <h2 class="fs-title">Question 8</h2>
-    <h3 class="fs-subtitle">I regulary question people about their basic assumptions.</h3>
+    <div class="form-group">
+    8. I regulary question people about their basic assumptions.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question8, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question8_true">Aggree</label>
@@ -179,14 +177,10 @@
     <%= form.radio_button :question8, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question8_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question8 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
+  </div>
 
-    <h2 class="fs-title">Question 9</h2>
-    <h3 class="fs-subtitle">What matters most is whether something works in practice.</h3>
+    <div class="form-group">
+    9. What matters most is whether something works in practice.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question9, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question9_true">Aggree</label>
@@ -195,14 +189,10 @@
     <%= form.radio_button :question9, 'false',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question9_false">Disggree</label>
   </div>
-        <br>
-    <input type="button" name="previous" class="previous action-button btn-primary" value="Previous" />
-    <% if learningstyle.question9 %> 
-    <input type="button" name="next" class="next action-button btn-primary" value="next" />
-    <% end %>
+  </div>
 
-    <h2 class="fs-title">Question 10</h2>
-    <h3 class="fs-subtitle">I actively seek out new experiences.</h3>
+    <div class="form-group">
+    10. I actively seek out new experiences.</h3>
     <div class="custom-control custom-radio">
     <%= form.radio_button :question10, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question10_true">Aggree</label>
@@ -212,7 +202,14 @@
     <label class="custom-control-label" for="learningstyle_question10_false">Disggree</label>
   </div>
   </div>
-  <div class="tab-pane fade" id="step-2">
+  </div>
+
+  <!-- Step 2-->
+  <% if learningstyle.completed_no >= 10 && learningstyle.completed_no < 20 %>
+  <div class="tab-pane fade active show" id="step-2">
+    <% else %>
+    <div class="tab-pane fade" id="step-2">
+   <% end %>
     <div class="form-group">
     11. When I hear about a new idea or approach I immediately start working out how to apply it in practice.
     <div class="custom-control custom-radio">
@@ -341,7 +338,12 @@
     <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
   </div>
 
-  <div class="tab-pane fade" id="step-3">
+<!-- Step 3-->
+  <% if learningstyle.completed_no >= 20 && learningstyle.completed_no < 30 %>
+  <div class="tab-pane fade active show" id="step-3">
+    <% else %>
+    <div class="tab-pane fade" id="step-3">
+   <% end %>
 <div class="form-group">
   21. In discussions I like to get straight to the point.
     <div class="custom-control custom-radio">
@@ -467,7 +469,11 @@
   </div>
 
   <!--step 4 -->
-  <div class="tab-pane fade" id="step-4">
+  <% if learningstyle.completed_no >= 30 && learningstyle.completed_no < 40 %>
+  <div class="tab-pane fade active show" id="step-4">
+    <% else %>
+    <div class="tab-pane fade" id="step-4">
+   <% end %>
   <div class="form-group">
     31. I listen to other people's point of view before putting my own forward.
     <div class="custom-control custom-radio">
@@ -590,7 +596,11 @@
   </div>
 
   <!--step 5 -->
-  <div class="tab-pane fade" id="step-5"> 
+  <% if learningstyle.completed_no >= 40 && learningstyle.completed_no < 50 %>
+  <div class="tab-pane fade active show" id="step-5">
+    <% else %>
+    <div class="tab-pane fade" id="step-5">
+   <% end %>
   <div class="form-group">
    41. I think that decisions based on thorough analysis of all the information are sounder than those based on intuition.
     <div class="custom-control custom-radio">
@@ -711,8 +721,13 @@
   </div>
   </div>
   </div>
+
   <!--step 6 -->
-  <div class="tab-pane fade" id="step-6">
+  <% if learningstyle.completed_no >= 50 && learningstyle.completed_no < 60 %>
+  <div class="tab-pane fade active show" id="step-6">
+    <% else %>
+    <div class="tab-pane fade" id="step-6">
+   <% end %>
   <div class="form-group">
     51. I believe that rational, logical thinking should win the day.
     <div class="custom-control custom-radio">
@@ -834,7 +849,11 @@
   </div>
   </div>
   <!--step 7 -->
-  <div class="tab-pane fade" id="step-7"> 
+  <% if learningstyle.completed_no >= 60 && learningstyle.completed_no < 70 %>
+  <div class="tab-pane fade active show" id="step-7">
+    <% else %>
+    <div class="tab-pane fade" id="step-7">
+   <% end %>
   <div class="form-group">
     61. I like to ponder many alternatives before making up my mind.
     <div class="custom-control custom-radio">
@@ -848,7 +867,7 @@
   </div>
   
   <div class="form-group">
-    62. In discussions with people I often find i am the most dispassionate and objective.
+    62. In discussion I'm more likely to adopt a 'low profile' than take the lead and do most of the talking.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question62, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question62_true">Agree</label>
@@ -860,7 +879,7 @@
   </div>
    
   <div class="form-group">
-    63. in discussion I'm more likely to adopt a 'low profile' than take the lead and do most of the talking.
+    63. I like to be able to relate current actions to a long-term bigger picture.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question63, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question63_true">Agree</label>
@@ -872,7 +891,7 @@
   </div>
    
   <div class="form-group">
-    64. I like to be able to relate current actions to a long-term bigger picture.
+    64. when things go wrong I am happy to shrug it off and 'put it down to experience'.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question64, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question64_true">Agree</label>
@@ -884,7 +903,7 @@
   </div>
    
   <div class="form-group">
-    65. when things go wrong I am happy to shrug it off and 'put it down to experience'.
+    65. I tend to reject wild, spontaneous ideas as being impractical.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question65, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question65_true">Agree</label>
@@ -896,7 +915,7 @@
   </div>
 
   <div class="form-group">
-     66. I tend to reject wild, spontaneous ideas as being impractical.
+     66. it's best to think carefully before taking action.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question66, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question66_true">Agree</label>
@@ -908,7 +927,7 @@
   </div>
   
   <div class="form-group">
-    67. it's best to think carefully before taking action.
+    67. On Balance I do the listening rather than the talking.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question67, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question67_true">Agree</label>
@@ -920,7 +939,7 @@
   </div>
   
   <div class="form-group">
-    68. On Balance I do the listening rather than the talking.
+    68. I tend to be tough on people who find it difficult to adopt a logical approach.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question68, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question68_true">Agree</label>
@@ -932,7 +951,7 @@
   </div>
    
   <div class="form-group">
-    69. I tend to be tough on people who find it difficult to adopt a logical approach.
+    69. most times I believe the end justifies the means.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question69, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question69_true">Agree</label>
@@ -944,7 +963,7 @@
   </div>
    
   <div class="form-group">
-    70. most times I believe the end justifies the means.60. I like to ponder many alternatives before making up my mind.
+    70. I don't mind hurting people's feelings so long as the job get's done.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question70, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question70_true">Agree</label>
@@ -957,9 +976,13 @@
   </div>
 
   <!--step 8 -->
-  <div class="tab-pane fade" id="step-8">
+  <% if learningstyle.completed_no >= 70 && learningstyle.completed_no < 80 %>
+  <div class="tab-pane fade active show" id="step-8">
+    <% else %>
+    <div class="tab-pane fade" id="step-8">
+   <% end %>
   <div class="form-group">
-     71. I don't mind hurting people's feelings so long as the job get's done.
+     71. I find the formally of having specific objectives and plans stifling.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question71, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question71_true">Agree</label>
@@ -971,7 +994,7 @@
   </div>
   
   <div class="form-group">
-    72. I find the formally of having specific objectives and plans stifling.
+    72. I'm usually one of the people who puts life into the party.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question72, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question72_true">Agree</label>
@@ -983,7 +1006,7 @@
   </div>
   
   <div class="form-group">
-    73. I'm usually one of the people who puts life into the party.
+    73.I do whatever is expected to get the job done.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question73, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question73_true">Agree</label>
@@ -995,7 +1018,7 @@
   </div>
  
   <div class="form-group">
-    74.I do whatever is expected to get the job done.
+    74. I quickly get bored with methodical, detailed work.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question74, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question74_true">Agree</label>
@@ -1007,7 +1030,7 @@
   </div>
    
   <div class="form-group">
-    75. I quickly get bored with methodical, detailed work.
+    75. I am keen on exploring the basic assumptions, principles and theories underpinning things and events.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question75, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question75_true">Agree</label>
@@ -1019,7 +1042,7 @@
   </div>
   
   <div class="form-group">
-    76. I am keen on exploring the basic assumptions, principles and theories underpinning things and events.
+    76. I'm always interested to find out what people think.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question76, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question76_true">Agree</label>
@@ -1031,7 +1054,7 @@
   </div>
   
   <div class="form-group">
-    77. I'm always interested to find out what people think.
+    78. I like meetings to be run on methodical lines, sticking to a laid down agenda,etc.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question77, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question77_true">Agree</label>
@@ -1043,7 +1066,7 @@
   </div>
    
   <div class="form-group">
-    78. I like meetings to be run on methodical lines, sticking to a laid down agenda,ect.
+    78. I steer clear of subjective or ambiguous topics.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question78, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question78_true">Agree</label>
@@ -1055,7 +1078,7 @@
   </div>
   
   <div class="form-group">
-    79. I steer clear of subjective or ambiguous topics.
+    79. I enjoy the drama and excitement of a crisis situations.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question79, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question79_true">Agree</label>
@@ -1067,7 +1090,7 @@
   </div>
  
   <div class="form-group">
-    80. I enjoy the drama and excitement of a crisis situations.
+    80. People often find me insensitive to their feelings.
     <div class="custom-control custom-radio">
     <%= form.radio_button :question80, 'true',class: "custom-control-input" %>
     <label class="custom-control-label" for="learningstyle_question80_true">Agree</label>
@@ -1077,60 +1100,21 @@
     <label class="custom-control-label" for="learningstyle_question80_false">Disgree</label>
   </div>
   </div>
+    
   </div>
-
 </div>
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active show" data-toggle="tab" href="#step-1">Step 1</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-2">Step 2</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-3">Step 3</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-4">Step 4</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-5">Step 5</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-6">Step 6</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-7">Step 7</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#step-8">Step 8 sjdsjvsdjl</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </li>
-</ul>
+</div>
+<% if learningstyle.completed_no >= 80  %>
+      <%= link_to 'Next Phase', root_path,class: "btn btn-primary float-right"%>
+    <% end %>
 <% end %>
 
-
-
-
-
-<div class="col-md-3 offset-0" id="row">
-<div class="" >
+<div class="col-md-6 offset-3" id="row">
+<div class="text" >
 <%= learningstyle.completed_no %> out of 80
 </div>
 <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: <%= learningstyle.completed_no %>%" aria-valuenow="<%= learningstyle.completed_no %>" aria-valuemin="0" aria-valuemax="80"><%= learningstyle.completed_no %>% complete</div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: <%= learningstyle.completed_no + 20 %>%" aria-valuenow="<%= learningstyle.completed_no %>" aria-valuemin="0" aria-valuemax="100"><%= learningstyle.completed_no * 100/80  %>% complete</div>
 </div>
 </div>
 
@@ -1141,3 +1125,4 @@ $('#edit_learningstyle_<%= @learningstyle.id %>').submit();
  }); 
  })(jQuery);
 </script>
+

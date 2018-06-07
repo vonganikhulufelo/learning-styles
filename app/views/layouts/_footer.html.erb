@@ -1,0 +1,20 @@
+<hr class="my-4">
+<footer class="footer">
+  <nav>
+    <p class="nav-item">
+      <small>
+      &copy Zyelabs
+      </small>
+    </p>
+    
+    <ul class="navbar navbar-bottom">
+      <li class="nav-item"><%= link_to "Home", root_path,class: "nav-link" %></li>
+
+      <li class="nav-item"><%= link_to "Questionnaire", new_user_learningstyle_url(current_user.id),class: "nav-link" %></li></li>
+      <li class="nav-item"><%= current_user.name %></li>
+      <li class="nav-item"></li>
+    </ul>
+    
+    </ul>
+  </nav>
+</footer>

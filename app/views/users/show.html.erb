@@ -8,18 +8,21 @@
 
 <div class="row">
 <div class="col-md-6">
+   <br> 
   <h4 class='text-center'>Learning Styles Questionnaire - Scoring</h4>
-      <p><strong>Activisttotal</strong> <%= @learningstyles.activisttotal %></p>
-       <p><strong>Reflectortotal</strong> <%= @learningstyles.reflectortotal %></p>
-       <p><strong>Theorist</strong> <%= @learningstyles.theoristtotal %></p>
-       <p><strong>Pragmatist</strong> <%= @learningstyles.pragmatisttotal %></p>
+   <br> 
+  <h5 class='text-center'><%= link_to '(What are you?)', user_learningstyles_path(current_user.id) %></h5>
         <p><strong>Activisttotal</strong> <%= @learningstyles.actstatus %></p>
          <p><strong>Reflectortotal</strong> <%= @learningstyles.refstatus %></p>
         <p><strong>Theorist</strong> <%= @learningstyles.theostatus %></p>
-        <p><strong>Pragmatist</strong> <%= @learningstyles.pragstatus %></p>  
+        <p><strong>Pragmatist</strong> <%= @learningstyles.pragstatus %></p> 
+        <br> 
+        <br> 
+        <br> 
 
 </div>
 <dov class="col-md-6">
+   <br> 
   <h4 class='text-center'>Learning Styles Questionnaire - Scoring</h4>
 <div id="container" style="height:100%; width:100%; margin: 0;"></div>
 </dov>
@@ -42,8 +45,8 @@
         <td><%= link_to 'Teams', organization_teams_path(organization) %>
 
         </td>
-        <td><%= link_to 'Edit', edit_user_organization_path(organization.user_id, organization.id) %></td>
-        <td><%= link_to 'Destroy', [organization.user,organization], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_user_organization_path(organization.user_id, organization.id) %></td>
+        <td><%= link_to '<i class="fa fa-trash-alt"></i>'.html_safe, [organization.user,organization], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

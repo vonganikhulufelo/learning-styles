@@ -25,8 +25,13 @@ class LearningstylesController < ApplicationController
 
   # GET /learningstyles/new
   def new
-    @user = User.find(params[:user_id])
-    @learningstyle = @user.learningstyles.build
+    @user = current_user
+    @learningstyle1 = @user.learningstyles.find_by_user_id(@user.id)
+    if @learningstyle1
+      redirect_to edit_user_learningstyle_path(@user.id, @learningstyle1.id)
+    else
+      @learningstyle = @user.learningstyles.build
+    end
   end
 
   # GET /learningstyles/1/edit
@@ -37,23 +42,21 @@ class LearningstylesController < ApplicationController
   # POST /learningstyles
   # POST /learningstyles.json
   def create
-    @user = User.find(params[:user_id])
-    @learningstyle = @user.learningstyles.create(learningstyle_params)
-    ##if current_user.step_no.to_i >= 1
-      #@learningstyles = @user.learningstyles.find_by_user_id(current_user.id)
-      #redirect_to edit_user_learningstyle_path(current_user.id, @learningstyles.id)
-    #else
+    @user = current_user
+    @learningstyle1 = @user.learningstyles.find_by_user_id(@user.id)
+    if @learningstyle1
+      redirect_to edit_user_learningstyle_path(@user.id, @learningstyle1.id)
+    else
+       @learningstyle = @user.learningstyles.create(learningstyle_params)
     respond_to do |format|
       if @learningstyle.save
-        @user = User.find(@learningstyle.user_id)
-        @user.update_attribute(:step_no, 1)
         format.html { redirect_to edit_user_learningstyle_path(current_user.id, @learningstyle.id), notice: 'Learningstyle was successfully created.' }
         format.json { render :show, status: :created, location: @learningstyle }
       else
         format.html { render :new }
         format.json { render json: @learningstyle.errors, status: :unprocessable_entity }
       end
-    #end
+    end
   end
   end
 
@@ -61,9 +64,6 @@ class LearningstylesController < ApplicationController
   # PATCH/PUT /learningstyles/1.json
   def update
     @learningstyle.update(learningstyle_params)
-
-    @u = current_user.step_no + 1
-    @user.update_attribute(:step_no, 0)
     respond_to do |format|
       format.html { redirect_to edit_user_learningstyle_path(current_user.id,@learningstyle.id) }
       format.js
@@ -84,7 +84,7 @@ class LearningstylesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_learningstyle
       @user = User.find(params[:user_id])
-    @learningstyle = @user.learningstyles.find(params[:id])
+    @learningstyle = @user.learningstyles.find_by_user_id(@user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
