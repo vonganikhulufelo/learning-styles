@@ -1105,7 +1105,7 @@
 </div>
 </div>
 <div class="from-group">
-      <%= link_to 'Next Phase', root_path,class: "btn btn-primary float-right"%>
+      <%= form.submit 'Submit',class: "btn btn-primary float-right"%>
     </div>
 <% end %>
 
@@ -1120,8 +1120,8 @@
 
 <script type="text/javascript">
   (function($) {
-$('.edit_learningstyle input[type=radio]').click(function () {
-$('#edit_learningstyle_<%= @learningstyle.id %>').submit();
+$('edit_learningstyle input[type=radio]').click(function () {
+$('edit_learningstyle_<%= @learningstyle.id %>').submit();
  }); 
  })(jQuery);
 </script>
