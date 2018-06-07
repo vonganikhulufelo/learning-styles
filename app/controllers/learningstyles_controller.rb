@@ -63,13 +63,8 @@ class LearningstylesController < ApplicationController
   # PATCH/PUT /learningstyles/1
   # PATCH/PUT /learningstyles/1.json
   def update
-   if  @learningstyle.update(learningstyle_params)
-    respond_to do |format|
-      format.html { redirect_to edit_user_learningstyle_path(current_user.id,@learningstyle.id) }
-    else
-       format.html { redirect_to edit_user_learningstyle_path(current_user.id,@learningstyle.id) }
-    end
-  end
+    @learningstyle.update(learningstyle_params)
+      redirect_to edit_user_learningstyle_path(current_user.id,@learningstyle.id)
   end
 
   # DELETE /learningstyles/1
