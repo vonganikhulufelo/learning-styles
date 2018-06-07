@@ -1114,7 +1114,7 @@
 <%= learningstyle.completed_no %> out of 80
 </div>
 <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: <%= learningstyle.completed_no + 20 %>%" aria-valuenow="<%= learningstyle.completed_no %>" aria-valuemin="0" aria-valuemax="100"><%= learningstyle.completed_no * 100/80  %>% complete</div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: <%= learningstyle.completed_no + 20 %>%" aria-valuenow="<%= learningstyle.completed_no %>" aria-valuemin="0" aria-valuemax="100"><%= learningstyle.completed_no/80 * 100  %>% complete</div>
 </div>
 </div>
 
