@@ -37,8 +37,9 @@ class TeaminvitesController < ApplicationController
         @teaminvite.update_attribute(:name, @user.name)
         @teaminvite.update_attribute(:organization_id, @team.organization_id)
         @teaminvite.update_attribute(:email, email)
+        @teaminvite.update_attribute(:accepted, 'true')
         @teaminvite.save
-        InviteMailer.send_invite_team(@teaminvite).deliver_now
+        #InviteMailer.send_invite_team(@teaminvite).deliver_now
        end
        #@teaminvite = @team.teaminvites.create(teaminvite_params)
       end
