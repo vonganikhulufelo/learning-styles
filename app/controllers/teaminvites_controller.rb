@@ -41,7 +41,6 @@ class TeaminvitesController < ApplicationController
         @teaminvite.save
         #InviteMailer.send_invite_team(@teaminvite).deliver_now
        end
-       #@teaminvite = @team.teaminvites.create(teaminvite_params)
       end
 
     redirect_to root_path
