@@ -8,20 +8,12 @@ Bundler.require(*Rails.groups)
 
 module QuestApp
   class Application < Rails::Application
+    config.serve_static_assets = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.gmail.net',
-    :port           => 587,
-    :authentication => 'login',
-    :user_name      => 'nname4440@gmail.com',
-    :password       => '17932468',
-    :enable_starttls_auto => true,
-    :domain         => 'mail.google.com',
-  }
   end
 end
