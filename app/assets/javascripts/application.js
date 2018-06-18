@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require index
+//= require toastr.min
+//= require jquery.min
+//= require echarts
 //= require rails-ujs
 //= require turbolinks
 //= require_tree
