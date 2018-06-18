@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module QuestApp
   class Application < Rails::Application
-    config.serve_static_assets = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
