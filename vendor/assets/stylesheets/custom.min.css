@@ -64,7 +64,6 @@ p{font-size:15px;color:#777;}
 .navbar.navbar-default.nav-fixed .navbar-nav li a:hover{color:#F86A3A;transition:color 0.3s;}
 .navbar.navbar-default.nav-fixed .navbar-nav li a.active,
 .navbar.navbar-default.nav-fixed .navbar-nav li a:focus{color:#F86A3A;}
-.main-banner{background:url('main_bg.jpg')center fixed;background-size:100% 100%;}
 .main-banner .bg-gradient{background:rgba(32,34,38,0.7);background:-moz-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:-webkit-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:-o-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:-ms-linear-gradient(top, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);background:linear-gradient(to bottom, rgba(32,34,38,0.7) 0%, rgba(32,34,38,0.98) 74%, rgba(32,34,38,1) 100%);padding:200px 0 100px;min-height:100vh;}
 .banner-text{margin-top:50px;}
 .banner-text .big-text{color:#fff;font-size:37px;font-family:robo-medium;text-transform:uppercase;margin:0;}
