@@ -31,3 +31,7 @@
 }
 
 
+.main-banner{
+background-image:url('<%= asset_path("main_bg.jpg") %> ');
+
+background-size:100% 100%;}

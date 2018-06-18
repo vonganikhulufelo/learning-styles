@@ -11,4 +11,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
- Rails.application.config.assets.precompile += %w( custom.min.css index.js toastr.min.js toastr.css login.css jquery.min.js)
+ Rails.application.config.assets.precompile += %w( custom.min.css index.js toastr.min.js toastr.css login.css jquery.min.js echarts.js bootstrap.css style.css)
+
